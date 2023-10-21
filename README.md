@@ -1,1 +1,1 @@
-# wysiswyg
+# WYSISWYG HTML editor for Svelte.
