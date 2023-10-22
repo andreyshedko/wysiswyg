@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap');
+
 :root {
     font-size: calc(0.2em + 1vw);
     box-sizing: border-box;
@@ -15,7 +17,8 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    font-family: "Open Sans", sans-serif;
+    font-size: calc(15px + 0.390625vw);
+    font-family: "Open Sans";
 }
 
 

@@ -1,0 +1,15 @@
+.editor {
+    resize: both;
+    overflow: auto;
+    box-shadow: inset 1px 1px 1px rgba(0, 0, 0, .1), 1px 1px 1px rgba(0, 0, 0, .1);
+    width: auto;
+    height: auto;
+    display: grid;
+    place-items: center;
+    outline: initial;
+    padding: .3rem;
+    margin: 1rem;
+    & :focus-visible {
+        outline: initial;
+    }
+}
