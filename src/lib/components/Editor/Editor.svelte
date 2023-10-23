@@ -7,25 +7,23 @@
 	import { setLocale } from '$lib/stores/language-store.ts';
 	import { onDestroy, onMount } from 'svelte';
 	import { content } from '$lib/stores/content-store.ts';
+	import { initEditor } from '$lib/utils.ts';
 
 	export let locale: string;
 	setLocale(locale);
 
 	let domValue: HTMLElement;
-	let _document;
+	let _document: Document;
 
 	onMount(() => {
 		_document = document;
-		content.set(document.createElement('p'));
-		domValue = document.createElement('p');
+		content.set(_document.createElement('p'));
+		domValue = _document.createElement('p');
 	});
 
 	const unsubscribe = content.subscribe((value) => {
 		domValue = value ? value : domValue;
-		if (_document) {
-			const start = _document.getElementById('start');
-			start.append(domValue);
-		}
+		initEditor(domValue, _document);
 	});
 
 	onDestroy(() => unsubscribe());
