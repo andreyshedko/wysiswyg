@@ -2,4 +2,4 @@
     import Editor from '../lib/components/Editor/Editor.svelte';
 </script>
 
-<Editor />
+<Editor locale={'cz'} />

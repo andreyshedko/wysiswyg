@@ -1,20 +1,13 @@
-<script>
-    import FileMenuItem from "./FileMenuItem.svelte";
-import "./Menu.scss";
+<script lang="ts">
+	import FileMenuItem from './FileMenuItem.svelte';
+	import EditMenuItem from './EditMenuItem.svelte';
+	import './Menu.scss';
 </script>
 
 <section class="menu">
-  <FileMenuItem />
-  <div>
-    Edit
-  </div>
-  <div>
-    View
-  </div>
-  <div>
-    Tools
-  </div>
-  <div>
-    Help
-  </div>
+	<FileMenuItem />
+	<EditMenuItem />
+	<div>View</div>
+	<div>Tools</div>
+	<div>Help</div>
 </section>

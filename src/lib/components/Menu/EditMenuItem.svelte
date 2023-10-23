@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { setContent } from '$lib/stores/content-store.ts';
 	import { t } from '$lib/stores/language-store.ts'
+	import { onDestroy } from 'svelte';
 
-	function newDocument(event?: MouseEvent | KeyboardEvent): void {
+	function newDocument(event: MouseEvent | KeyboardEvent): void {
 		setContent(document.createElement('p'));
 	}
 
@@ -16,7 +17,7 @@
 </script>
 
 <div class="dropdown">
-	{@html $t('menu.file')}
+	{@html $t('menu.edit')}
 	<div class="dropdown-content">
 		<div
 			role="menuitem"
