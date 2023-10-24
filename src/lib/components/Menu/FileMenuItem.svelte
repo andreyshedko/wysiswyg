@@ -1,13 +1,17 @@
 <script lang="ts">
 	import { setContent } from '$lib/stores/content-store.ts';
-	import { t } from '$lib/stores/language-store.ts'
+	import { t } from '$lib/stores/language-store.ts';
+	import Fa from 'svelte-fa';
+  	import { faBars } from '@fortawesome/free-solid-svg-icons'
+
+	export let callback: () => void;
 
 	function newDocument(event?: MouseEvent | KeyboardEvent): void {
 		setContent(document.createElement('p'));
 	}
 
-	function saveAs(): void {
-		throw new Error('Not implemented yet');
+	function saveAs(callback: () => void): void {
+		callback();
 	}
 
 	function print(): void {
@@ -16,7 +20,7 @@
 </script>
 
 <div class="dropdown">
-	{@html $t('menu.file')}
+	<Fa icon={faBars} />
 	<div class="dropdown-content">
 		<div
 			role="menuitem"
@@ -33,10 +37,10 @@
 			role="menuitem"
 			aria-roledescription="menuitem"
 			tabindex="0"
-			on:click={saveAs}
-			on:keydown={saveAs}
+			on:click={() => saveAs(callback)}
+			on:keydown={() => saveAs(callback)}
 		>
-		{@html $t('menu.file.saveAs')}
+			{@html $t('menu.file.saveAs')}
 		</div>
 		<div
 			class="menu-item"
@@ -46,7 +50,7 @@
 			on:click={print}
 			on:keydown={print}
 		>
-		{@html $t('menu.file.print')}
+			{@html $t('menu.file.print')}
 		</div>
 	</div>
 </div>

@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Footer from '../Footer.svelte';
 	import Icons from '../Icons.svelte';
 	import Menu from '../Menu/Menu.svelte';
 	import '../../app.scss';
@@ -39,4 +38,3 @@
 	<h3>HTML</h3>
 	{@html { domValue }}
 </div>
-<Footer />

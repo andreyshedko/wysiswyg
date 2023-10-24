@@ -6,7 +6,7 @@ export const translations =  {
         "menu.tools": "Tools",
         "menu.help": "Help",
         "menu.file.newDocument": "New Document",
-        "menu.file.saveAs": "Save As",
+        "menu.file.saveAs": "Publish",
         "menu.file.print": "Print",
     },
     "cz": {
@@ -16,7 +16,7 @@ export const translations =  {
         "menu.tools": "Nástroje",
         "menu.help": "Nápověda",
         "menu.file.newDocument": "Nový dokument",
-        "menu.file.saveAs": "Uložit jako",
+        "menu.file.saveAs": "Zveřejnit",
         "menu.file.print": "Tisk",
     },
 };

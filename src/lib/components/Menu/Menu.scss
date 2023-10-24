@@ -1,8 +1,11 @@
 .menu {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    justify-content: flex-end;
+    background-color: darken($color: #323232, $amount: 0);
+    border-radius: 0.2rem;
 
-    width: auto;
+    width: 10vw;
     padding: .3rem;
     margin: 1rem;
 

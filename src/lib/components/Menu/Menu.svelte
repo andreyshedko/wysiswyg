@@ -2,10 +2,11 @@
 	import FileMenuItem from './FileMenuItem.svelte';
 	import EditMenuItem from './EditMenuItem.svelte';
 	import './Menu.scss';
+	export let callback = () => {};
 </script>
 
 <section class="menu">
-	<FileMenuItem />
+	<FileMenuItem callback={callback} />
 	<EditMenuItem />
 	<div>View</div>
 	<div>Tools</div>
