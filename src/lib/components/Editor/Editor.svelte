@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Icons from '../Icons.svelte';
 	import Menu from '../Menu/Menu.svelte';
 	import '../../app.scss';
 	import './Editor.scss';
@@ -29,7 +28,6 @@
 </script>
 
 <Menu />
-<Icons />
 <div contenteditable="true" class="editor">
 	<h3>Preview</h3>
 	<div id="start" />
