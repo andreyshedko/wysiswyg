@@ -2,11 +2,19 @@
 // for information about these interfaces
 declare global {
 	namespace App {
-		// interface Error {}
-		// interface Locals {}
-		// interface PageData {}
-		// interface Platform {}
+		type Element = 'text'
+			| 'image'
+			| 'video'
+			| 'list'
+			| 'button'
+			| 'links'
+			| 'icons'
+			| 'audio'
+			| 'table'
+			| 'timer'
+			| 'divider'
+			| 'form'
 	}
 }
 
-export {};
+export { };

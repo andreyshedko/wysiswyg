@@ -1,6 +1,6 @@
 <script lang="ts">
 	import FileMenuItem from './FileMenuItem.svelte';
-	import EditMenuItem from './EditMenuItem.svelte';
+	import AddMenuItem from './AddMenuItem.svelte';
 	import './Menu.scss';
 	import Fa from 'svelte-fa';
 	import { faBackwardStep, faForwardStep, faMobileScreenButton, faPlus } from '@fortawesome/free-solid-svg-icons';
@@ -8,12 +8,14 @@
 </script>
 
 <section class="menu">
-	<FileMenuItem 
+	<FileMenuItem
+		saveCallback={callback}
+		historyCallback={callback}
 		publishCallback={callback}
 		helpCallback={callback}
 	/>
 	<Fa icon={faMobileScreenButton} />
 	<Fa icon={faBackwardStep} />
 	<Fa icon={faForwardStep} />
-	<Fa icon={faPlus} />
+	<AddMenuItem />
 </section>
