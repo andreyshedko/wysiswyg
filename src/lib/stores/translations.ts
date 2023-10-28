@@ -11,7 +11,12 @@ export const translations =  {
         "menu.file.publish": "Publish",
         "menu.file.print": "Print",
         "menu.file.help": "Help",
-        "menu.add.text": "Text"
+        "menu.add.text": "Text",
+        "menu.add.image": "Image",
+        "menu.add.video": "Video",
+        "menu.add.audio": "Audio",
+        "menu.add.link": "Link",
+        "menu.add.timer": "Timer"
     },
     "cz": {
         "menu.file": "Soubor",
@@ -25,6 +30,11 @@ export const translations =  {
         "menu.file.publsih": "Zveřejnit",
         "menu.file.print": "Tisk",
         "menu.file.help": "Nápověda",
-        "menu.add.text": "Text"
+        "menu.add.text": "Text",
+        "menu.add.image": "Obrázek",
+        "menu.add.video": "Video",
+        "menu.add.audio": "Audio",
+        "menu.add.link": "Odkaz",
+        "menu.add.timer": "Časovač"
     },
 };

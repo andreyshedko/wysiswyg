@@ -1,19 +1,23 @@
 // See https://kit.svelte.dev/docs/types#app
 // for information about these interfaces
 declare global {
-	namespace App {
-		type Element = 'text'
+	namespace Editor {
+		type ElementType = 'text'
 			| 'image'
 			| 'video'
 			| 'list'
 			| 'button'
-			| 'links'
+			| 'link'
 			| 'icons'
 			| 'audio'
 			| 'table'
 			| 'timer'
 			| 'divider'
-			| 'form'
+			| 'form';
+		interface SliderState {
+			isOpen: boolean;
+			selectedElement?: ElementType;
+		}
 	}
 }
 

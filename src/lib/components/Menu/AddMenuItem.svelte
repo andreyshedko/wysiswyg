@@ -1,11 +1,12 @@
 <script lang="ts">
-	import { setContent } from '$lib/stores/content-store.ts';
 	import { t } from '$lib/stores/language-store.ts';
+	import { toggleElement, toggleSlider } from '$lib/stores/slider-store.ts';
 	import { faFileAudio, faImage, faLink, faVideo, faFont, faPlus, faStopwatch } from '@fortawesome/free-solid-svg-icons';
 	import Fa from 'svelte-fa';
 
-	function addElement(element: Element): void {
-		console.log(element);
+	function addElement(element: Editor.ElementType): void {
+		toggleElement(element);
+		toggleSlider(true);
 	}
 </script>
 
@@ -32,7 +33,7 @@
 			on:keydown={() => addElement('image')}
 		>
 			<Fa icon={faImage} />
-			{@html $t('menu.file.publish')}
+			{@html $t('menu.add.image')}
 		</div>
 		<div
 			class="menu-item"
@@ -43,7 +44,7 @@
 			on:keydown={() => addElement('video')}
 		>
 			<Fa icon={faVideo} />
-			{@html $t('menu.file.save')}
+			{@html $t('menu.add.video')}
 		</div>
 		<div
 			class="menu-item"
@@ -54,7 +55,7 @@
 			on:keydown={() => addElement('audio')}
 		>
 			<Fa icon={faFileAudio} />
-			{@html $t('menu.file.history')}
+			{@html $t('menu.add.audio')}
 		</div>
 		<div
 			class="menu-item"
@@ -65,7 +66,7 @@
 			on:keydown={() => addElement('link')}
 		>
 			<Fa icon={faLink} />
-			{@html $t('menu.file.print')}
+			{@html $t('menu.add.link')}
 		</div>
 		<div
 			class="menu-item"
@@ -76,7 +77,7 @@
 			on:keydown={() => addElement('timer')}
 		>
 			<Fa icon={faStopwatch} />
-			{@html $t('menu.file.help')}
+			{@html $t('menu.add.timer')}
 		</div>
 	</div>
 </div>

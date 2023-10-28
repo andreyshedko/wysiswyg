@@ -1,0 +1,35 @@
+.slider {
+    height: 100%;
+    width: 25vw;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: darken($color: rgb(69, 69, 69), $amount: 0);
+    overflow-x: hidden;
+    transition: 0.5s;
+    color: #f9f9f9;
+
+    svg.svelte-fa {
+        color: #f9f9f9
+    }
+
+    .slider-header {
+        display: inline-flex;
+        justify-content: space-between;
+        width: 100%;
+        box-shadow: 0 2px 1px -2px #f9f9f9;
+
+        .slider-title {
+            padding-left: 0.5rem;
+        }
+
+        .slider-close-icon {
+            padding-right: 0.5rem;
+        }
+    }
+
+    .slider-body {
+        // height: 100%;
+    }
+}

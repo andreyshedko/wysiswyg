@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Menu from '../Menu/Menu.svelte';
+	import Slider from '../Slider/Slider.svelte';
 	import '../../app.scss';
 	import './Editor.scss';
 	import { setLocale } from '$lib/stores/language-store.ts';
@@ -7,7 +8,7 @@
 	import { content } from '$lib/stores/content-store.ts';
 	import { initEditor } from '$lib/utils.ts';
 
-	export let locale: string;
+	export let locale = 'en';
 	setLocale(locale);
 
 	let domValue: HTMLElement;
@@ -29,10 +30,6 @@
 
 <Menu />
 <div contenteditable="true" class="editor">
-	<h3>Preview</h3>
 	<div id="start" />
 </div>
-<div>
-	<h3>HTML</h3>
-	{@html { domValue }}
-</div>
+<Slider />
