@@ -8,6 +8,6 @@ export const toggleSlider = (isOpen: boolean) => {
     _slider.update((state: Editor.SliderState) => ({ ...state, isOpen }));
 }
 
-export const toggleElement = (element: Editor.ElementType) => {
-    _slider.update((state: Editor.SliderState) => ({ ...state, selectedElement: element }));
+export const toggleElement = (type: Editor.ElementType) => {
+    _slider.update((state: Editor.SliderState) => ({ ...state, type }));
 }

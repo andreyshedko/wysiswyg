@@ -1,11 +1,14 @@
 <script lang="ts">
+    import { onDestroy, onMount } from 'svelte';
 	import { slider, toggleSlider } from '$lib/stores/slider-store.ts';
-	import { onDestroy, onMount } from 'svelte';
+
     import "./slider.scss";
+
 	import Fa from 'svelte-fa';
 	import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
-	export { slider } from '$lib/stores/slider-store.ts';
+    import SliderBuilder from './SliderBuilder.svelte';
+
 	let state: Editor.SliderState;
 
 	const unsubscribe = slider.subscribe((value) => state = value);
@@ -38,7 +41,7 @@
             </div>
         </div>
         <div class="slider-body">
-
+            <SliderBuilder type={state.type} />
         </div>
     </div>
 {/if}

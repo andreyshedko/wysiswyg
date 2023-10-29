@@ -26,10 +26,12 @@
 
         .slider-close-icon {
             padding-right: 0.5rem;
+            cursor: pointer;
         }
     }
 
     .slider-body {
-        // height: 100%;
+        display: flex;
+        flex-direction: column;
     }
 }

@@ -1,4 +1,7 @@
 // See https://kit.svelte.dev/docs/types#app
+
+import type { ComponentType } from "svelte";
+
 // for information about these interfaces
 declare global {
 	namespace Editor {
@@ -16,7 +19,8 @@ declare global {
 			| 'form';
 		interface SliderState {
 			isOpen: boolean;
-			selectedElement?: ElementType;
+			type?: ElementType;
+			component?: ComponentType;
 		}
 	}
 }
