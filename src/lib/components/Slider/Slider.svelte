@@ -10,6 +10,7 @@
     import SliderBuilder from './SliderBuilder.svelte';
 
 	let state: Editor.SliderState;
+    let name: string;
 
 	const unsubscribe = slider.subscribe((value) => state = value);
 
@@ -28,7 +29,7 @@
 	<div class="slider">
         <div class="slider-header">
             <div class="slider-title">
-                Title
+                {name}
             </div>
             <div class="slider-close-icon"
                 on:click={() => toggleSlider(false)}
@@ -41,7 +42,7 @@
             </div>
         </div>
         <div class="slider-body">
-            <SliderBuilder type={state.type} />
+            <SliderBuilder type={state.type} bind:name />
         </div>
     </div>
 {/if}

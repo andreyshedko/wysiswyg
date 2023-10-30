@@ -16,7 +16,8 @@ export const translations =  {
         "menu.add.video": "Video",
         "menu.add.audio": "Audio",
         "menu.add.link": "Link",
-        "menu.add.timer": "Timer"
+        "menu.add.timer": "Timer",
+        "slider.text.appearance": "Appearance"
     },
     "cz": {
         "menu.file": "Soubor",
@@ -35,6 +36,7 @@ export const translations =  {
         "menu.add.video": "Video",
         "menu.add.audio": "Audio",
         "menu.add.link": "Odkaz",
-        "menu.add.timer": "Časovač"
+        "menu.add.timer": "Časovač",
+        "slider.text.appearance": "Vzhled"
     },
 };

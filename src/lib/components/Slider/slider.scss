@@ -33,5 +33,10 @@
     .slider-body {
         display: flex;
         flex-direction: column;
+
+        .text-container {
+            padding-left: 1rem;
+            padding-right:1rem;
+        }
     }
 }

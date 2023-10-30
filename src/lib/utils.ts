@@ -8,10 +8,10 @@ export const initEditor = (value: HTMLElement, _document: Document) => {
     }
 }
 
-const componentsMap = new Map<Editor.ElementType, ComponentType>()
-    .set('text', TextComponent);
+const componentsMap = new Map<Editor.ElementType, [string, ComponentType]>()
+    .set('text', ["Text Element", TextComponent]);
 
-export const getComponent = (type: Editor.ElementType): ComponentType | undefined => {
+export const getComponent = (type: Editor.ElementType): [string, ComponentType] | undefined => {
     if (!componentsMap.has(type)) return;
     else {
         return componentsMap.get(type)
