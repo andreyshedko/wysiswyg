@@ -17,3 +17,8 @@ export const getComponent = (type: Editor.ElementType): [string, ComponentType] 
         return componentsMap.get(type)
     }
 }
+
+export const textTypes = [
+    { key: "header", value: "Header" },
+    { key: "content", value: "Content" }
+]

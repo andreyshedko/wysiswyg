@@ -22,6 +22,24 @@ declare global {
 			type?: ElementType;
 			component?: ComponentType;
 		}
+		interface TextElementProps {
+			text: string;
+			appearance: {
+				type: 'header' | 'content';
+				color: string;
+				size: string;
+				wheight: string;
+				lineHeight: string;
+				letterSpacing: string;
+				textIndent: string;
+				firstLine: boolean;
+				margin: string;
+				alignment: string;
+				gradient: string;
+				width: string;
+				shadow: string;
+			}
+		}
 	}
 }
 
