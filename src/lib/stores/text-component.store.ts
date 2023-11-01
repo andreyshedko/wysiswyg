@@ -7,6 +7,6 @@ export const setType = (type: "header" | "content"): void => {
     content.update((state: Editor.TextElementProps) => ({ ...state, appearance: { ...state.appearance, type} }));
 }
 
-export const setColor = (color: Editor.Color): void => {
+export const setColor = (color: string): void => {
     content.update((state: Editor.TextElementProps) => ({ ...state, appearance: { ...state.appearance, color} }));
 }

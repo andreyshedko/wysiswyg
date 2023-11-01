@@ -27,7 +27,7 @@ declare global {
 			text: string;
 			appearance: {
 				type: 'header' | 'content';
-				color: Color;
+				color: string;
 				size: string;
 				wheight: string;
 				lineHeight: string;
