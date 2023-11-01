@@ -5,6 +5,7 @@ import type { ComponentType } from "svelte";
 // for information about these interfaces
 declare global {
 	namespace Editor {
+		type Color = {r: number, g: number, b: number, a: number};
 		type ElementType = 'text'
 			| 'image'
 			| 'video'
@@ -26,7 +27,7 @@ declare global {
 			text: string;
 			appearance: {
 				type: 'header' | 'content';
-				color: string;
+				color: Color;
 				size: string;
 				wheight: string;
 				lineHeight: string;
