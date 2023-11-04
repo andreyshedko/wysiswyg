@@ -7,25 +7,25 @@
 	import { onDestroy, onMount } from 'svelte';
 	import { content } from '$lib/stores/content-store.ts';
 	import { initEditor } from '$lib/utils.ts';
+	import Text from '../Content/Text.svelte';
+	import type { Unsubscriber } from 'svelte/store';
+	import { browser } from '$app/environment';
 
 	export let locale = 'en';
 	setLocale(locale);
+	let unsubscribe: Unsubscriber;
 
 	let domValue: HTMLElement;
 	let _document: Document;
 
-	onMount(() => {
-		_document = document;
-		content.set(_document.createElement('p'));
-		domValue = _document.createElement('p');
-	});
+	// onMount(() => {
+	// 	if (browser) {
+	// 		const start = document.getElementById('start');
+	// 		start?.append(new Text({ target: start }) as unknown as Node);
+	// 	}
+	// });
 
-	const unsubscribe = content.subscribe((value) => {
-		domValue = value ? value : domValue;
-		initEditor(domValue, _document);
-	});
-
-	onDestroy(() => unsubscribe());
+	// onDestroy(() => unsubscribe());
 </script>
 
 <Menu />

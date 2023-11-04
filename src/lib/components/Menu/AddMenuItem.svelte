@@ -1,11 +1,14 @@
 <script lang="ts">
 	import { t } from '$lib/stores/language-store.ts';
-	import { toggleElement, toggleSlider } from '$lib/stores/slider-store.ts';
+	import { setSelectedElement, toggleSlider } from '$lib/stores/slider-store.ts';
+	import { insertElement, setDefaultProps } from '$lib/utils.ts';
 	import { faFileAudio, faImage, faLink, faVideo, faFont, faPlus, faStopwatch } from '@fortawesome/free-solid-svg-icons';
 	import Fa from 'svelte-fa';
 
 	function addElement(element: Editor.ElementType): void {
-		toggleElement(element);
+		setSelectedElement(element);
+		setDefaultProps(element);
+		insertElement(element);
 		toggleSlider(true);
 	}
 </script>

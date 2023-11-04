@@ -1,5 +1,8 @@
+import { browser } from '$app/environment';
 import type { ComponentType } from 'svelte';
+import Text from './components/Content/Text.svelte';
 import TextComponent from './components/Slider/TextComponent.svelte';
+import { setElementProps } from './stores/selected-element.store.ts';
 
 export const initEditor = (value: HTMLElement, _document: Document) => {
     if (_document) {
@@ -8,17 +11,53 @@ export const initEditor = (value: HTMLElement, _document: Document) => {
     }
 }
 
-const componentsMap = new Map<Editor.ElementType, [string, ComponentType]>()
-    .set('text', ["Text Element", TextComponent]);
-
-export const getComponent = (type: Editor.ElementType): [string, ComponentType] | undefined => {
-    if (!componentsMap.has(type)) return;
-    else {
-        return componentsMap.get(type)
-    }
-}
-
 export const textTypes = [
     { key: "header", value: "Header" },
     { key: "content", value: "Content" }
-]
+];
+
+const elementsMap = new Map<Editor.ElementType, any>()
+    .set('text', Text);
+
+const sliderElementsMap = new Map<Editor.ElementType, [string, ComponentType]>()
+    .set('text', ["Text Element", TextComponent]);
+
+const defaultPropsMap = new Map<Editor.ElementType, Record<string, unknown>>()
+    .set("text", {
+        'text': "This is Text component",
+        'appearance': {
+            'color': '#f91010'
+        }
+    });
+
+export const getSliderComponent = (component: Editor.ElementType) => {
+    return sliderElementsMap.get(component)
+}
+
+export const insertElement = (element: Editor.ElementType): void => {
+    let start: HTMLElement | null;
+    if (browser) {
+        const _element = elementsMap.get(element);
+        start = document.getElementById('start');
+        const props = defaultPropsMap.get(element);
+        new _element!({ target: start, props: {"props": props} });
+    }
+}
+
+export const setDefaultProps = (element: Editor.ElementType): void => {
+    const props = defaultPropsMap.get(element);
+    setElementProps(props!);
+}
+
+export function generateStyles(appearance: Record<string, string>): string {
+    let stylesStringArr: string[] = [];
+    Object.entries(appearance).forEach((entry) => {
+        let key = entry[0];
+        let value = entry[1];
+        if (value) {
+            stylesStringArr.push(`${key}: ${value}`)
+        }
+    });
+
+    return stylesStringArr.join(",");
+}

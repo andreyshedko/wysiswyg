@@ -1,6 +1,7 @@
 <script lang="ts">
     import { onDestroy, onMount } from 'svelte';
 	import { slider, toggleSlider } from '$lib/stores/slider-store.ts';
+    import { props } from '$lib/stores/selected-element.store.ts';
 
     import "./slider.scss";
 
@@ -11,12 +12,17 @@
 
 	let state: Editor.SliderState;
     let name: string;
+    let _props: Record<string, unknown>;
 
-	const unsubscribe = slider.subscribe((value) => state = value);
+    const unsubscribeProps = props.subscribe((props) => _props = props);
+	const unsubscribeSlider = slider.subscribe((value) => state = value);
 
     let closeButton: HTMLElement;
-    onMount(() => closeButton?.focus())
-	onDestroy(() => unsubscribe());
+    onMount(() => closeButton?.focus());
+	onDestroy(() => {
+        unsubscribeProps();
+        unsubscribeSlider();
+    });
 
     function closeSidebar(event: KeyboardEvent) {
         if ((event as KeyboardEvent).code === 'Escape') {
@@ -42,7 +48,7 @@
             </div>
         </div>
         <div class="slider-body">
-            <SliderBuilder type={state.type} bind:name />
+            <SliderBuilder type={state.type} props={_props} bind:name />
         </div>
     </div>
 {/if}

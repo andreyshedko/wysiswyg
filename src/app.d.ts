@@ -4,7 +4,7 @@ import type { ComponentType } from "svelte";
 
 // for information about these interfaces
 declare global {
-	namespace Editor {
+	module Editor {
 		type Color = {r: number, g: number, b: number, a: number};
 		type ElementType = 'text'
 			| 'image'
@@ -18,11 +18,15 @@ declare global {
 			| 'timer'
 			| 'divider'
 			| 'form';
+
 		interface SliderState {
 			isOpen: boolean;
 			type?: ElementType;
 			component?: ComponentType;
 		}
+
+		type IEvent = MouseEvent | KeyboardEvent;
+
 		interface TextElementProps {
 			text: string;
 			appearance: {
@@ -33,7 +37,6 @@ declare global {
 				lineHeight: string;
 				letterSpacing: string;
 				textIndent: string;
-				firstLine: boolean;
 				margin: string;
 				alignment: string;
 				gradient: string;
