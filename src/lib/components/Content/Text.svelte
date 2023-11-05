@@ -7,6 +7,7 @@
 
 	export let props: Editor.TextElementProps;
     let styles: string;
+	
 	const unsubscribeProps = store.subscribe((_props) => {
 		props = _props;
 		styles = generateStyles(props.appearance);
@@ -37,8 +38,9 @@
         aria-roledescription="header"
 		data-type="text"
         tabindex="0" 
-        on:click={(e) => selectElement(e)} style={styles}
+        on:click={(e) => selectElement(e)}
         draggable="true"
+		style={styles}
     >
 		{props?.text ?? 'This is an H1 text element'}
 	</h1>

@@ -41,7 +41,7 @@ export const insertElement = (element: Editor.ElementType): void => {
         const _element = elementsMap.get(element);
         start = document.getElementById('start');
         const props = defaultPropsMap.get(element);
-        new _element!({ target: start, props: {"props": props} });
+        new _element!({ target: start, props: { "props": props } });
     }
 }
 
@@ -52,13 +52,15 @@ export const setDefaultProps = (element: Editor.ElementType): void => {
 
 export function generateStyles(appearance: Record<string, string>): string {
     let stylesStringArr: string[] = [];
-    Object.entries(appearance).forEach((entry) => {
-        let key = entry[0];
-        let value = entry[1];
-        if (value) {
-            stylesStringArr.push(`${key}: ${value}`)
-        }
-    });
+    Object.entries(appearance)
+        .filter((entry) => entry[0] !== 'type')
+        .forEach((entry) => {
+            let key = entry[0];
+            let value = entry[1];
+            if (value) {
+                stylesStringArr.push(`${key}: ${value}`)
+            }
+        });
 
     return stylesStringArr.join(",");
 }

@@ -74,7 +74,7 @@
 				id="colorpicker"
 				class="input"
 				bind:value={props.appearance.color}
-				on:input={(ev) => changeColor(ev.target.value)}
+				on:change={(ev) => changeColor(ev.target.value)}
 			/>
 		</div>
 	</div>
