@@ -1,16 +1,6 @@
 <script lang="ts">
 	import { setContent } from '$lib/stores/content-store.ts';
 	import { t } from '$lib/stores/language-store.ts';
-	import Fa from 'svelte-fa';
-	import {
-		faArrowsRotate,
-		faBars,
-		faFloppyDisk,
-		faInfoCircle,
-		faPrint,
-		faTimeline,
-		faUpload
-	} from '@fortawesome/free-solid-svg-icons';
 
 	export let historyCallback: () => void;
 	export let saveCallback: () => void;
@@ -35,7 +25,8 @@
 </script>
 
 <div class="dropdown">
-	<Fa icon={faBars} />
+	<!-- <Fa icon={faBars} /> -->
+	<i class="fa-solid fa-bars"></i>
 	<div class="dropdown-content position-right">
 		<div
 			role="menuitem"
@@ -45,7 +36,7 @@
 			on:click={newDocument}
 			on:keydown={newDocument}
 		>
-			<Fa icon={faArrowsRotate} />
+			<i class="fa-solid fa-arrows-rotate"></i>
 			{@html $t('menu.file.newDocument')}
 		</div>
 		<div
@@ -56,7 +47,7 @@
 			on:click={() => publish(publishCallback)}
 			on:keydown={() => publish(publishCallback)}
 		>
-			<Fa icon={faUpload} />
+			<i class="fa-solid fa-upload"></i>
 			{@html $t('menu.file.publish')}
 		</div>
 		<div
@@ -67,7 +58,7 @@
 			on:click={saveCallback}
 			on:keydown={saveCallback}
 		>
-			<Fa icon={faFloppyDisk} />
+			<i class="fa-regular fa-floppy-disk"></i>
 			{@html $t('menu.file.save')}
 		</div>
 		<div
@@ -78,7 +69,7 @@
 			on:click={historyCallback}
 			on:keydown={historyCallback}
 		>
-			<Fa icon={faTimeline} />
+			<i class="fa-solid fa-timeline"></i>
 			{@html $t('menu.file.history')}
 		</div>
 		<div
@@ -89,7 +80,7 @@
 			on:click={print}
 			on:keydown={print}
 		>
-			<Fa icon={faPrint} />
+			<i class="fa-solid fa-print"></i>
 			{@html $t('menu.file.print')}
 		</div>
 		<div
@@ -100,7 +91,7 @@
 			on:click={() => help(helpCallback)}
 			on:keydown={() => help(helpCallback)}
 		>
-			<Fa icon={faInfoCircle} />
+			<i class="fa-solid fa-circle-info"></i>
 			{@html $t('menu.file.help')}
 		</div>
 	</div>

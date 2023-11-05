@@ -1,6 +1,4 @@
 <script>
-	import { faBold } from "@fortawesome/free-solid-svg-icons";
-
     // pos is cursor position when right click occur
     let pos = { x: 0, y: 0 }
     // menu is dimension (height and width) of context menu

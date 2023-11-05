@@ -1,6 +1,7 @@
 <script lang="ts">
 	export let items: [{ key: string; value: string }] = [{key: '', value: ''}];
-	export let selected = '';
+	export let selectedType = '';
+	export let selected = selectedType ?? '';
 	import { createEventDispatcher } from 'svelte';
 
 	const dispatch = createEventDispatcher();

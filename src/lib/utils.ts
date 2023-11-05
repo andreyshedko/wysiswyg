@@ -26,6 +26,7 @@ const defaultPropsMap = new Map<Editor.ElementType, Record<string, unknown>>()
     .set("text", {
         'text': "This is Text component",
         'appearance': {
+            'type': 'header',
             'color': '#f91010'
         }
     });

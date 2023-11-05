@@ -5,9 +5,6 @@
 
     import "./slider.scss";
 
-	import Fa from 'svelte-fa';
-	import { faXmark } from '@fortawesome/free-solid-svg-icons';
-
     import SliderBuilder from './SliderBuilder.svelte';
 
 	let state: Editor.SliderState;
@@ -44,7 +41,7 @@
                 aria-roledescription="button"
                 tabindex="0"
             >
-                <Fa bind:this={closeButton} icon={faXmark} />
+            <i class="fa-solid fa-xmark"></i>
             </div>
         </div>
         <div class="slider-body">

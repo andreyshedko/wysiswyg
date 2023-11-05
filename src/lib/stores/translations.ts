@@ -17,6 +17,7 @@ export const translations =  {
         "menu.add.audio": "Audio",
         "menu.add.link": "Link",
         "menu.add.timer": "Timer",
+        "slider.text": "Text",
         "slider.text.appearance": "Appearance",
         "slider.text.color": "Color"
     },
@@ -38,6 +39,7 @@ export const translations =  {
         "menu.add.audio": "Audio",
         "menu.add.link": "Odkaz",
         "menu.add.timer": "Časovač",
+        "slider.text": "Text",
         "slider.text.appearance": "Vzhled",
         "slider.text.color": "Barva"
     },

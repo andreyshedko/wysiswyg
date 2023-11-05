@@ -33,9 +33,16 @@
 	<div class="flex-column mt-1">
 		<label class="label" for="type">{@html $t('slider.text.appearance')}</label>
 		<div class="control">
-			<Select id="type" bind:selected={type} items={textTypes} on:typeChanged={changeAppearance} />
+			<Select 
+				id="type"
+				selectedType={props.appearance.type}
+				bind:selected={type} 
+				items={textTypes} 
+				on:typeChanged={changeAppearance} 
+			/>
 		</div>
 	</div>
+	<label class="label" for="type">{@html $t('slider.text')}</label>
 	<div class="mt-1">
 		{#if props.appearance.type === 'header'}
 			<div class="control">

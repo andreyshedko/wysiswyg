@@ -2,8 +2,6 @@
 	import { t } from '$lib/stores/language-store.ts';
 	import { setSelectedElement, toggleSlider } from '$lib/stores/slider-store.ts';
 	import { insertElement, setDefaultProps } from '$lib/utils.ts';
-	import { faFileAudio, faImage, faLink, faVideo, faFont, faPlus, faStopwatch } from '@fortawesome/free-solid-svg-icons';
-	import Fa from 'svelte-fa';
 
 	function addElement(element: Editor.ElementType): void {
 		setSelectedElement(element);
@@ -14,7 +12,7 @@
 </script>
 
 <div class="dropdown">
-	<Fa icon={faPlus} />
+	<i class="fa-regular fa-plus"></i>
 	<div class="dropdown-content position">
 		<div
 			role="menuitem"
@@ -24,7 +22,7 @@
 			on:click={() => addElement('text')}
 			on:keydown={() => addElement('text')}
 		>
-			<Fa icon={faFont} />
+			<i class="fa-solid fa-font"></i>
 			{@html $t('menu.add.text')}
 		</div>
 		<div
@@ -35,7 +33,7 @@
 			on:click={() => addElement('image')}
 			on:keydown={() => addElement('image')}
 		>
-			<Fa icon={faImage} />
+			<i class="fa-regular fa-image"></i>
 			{@html $t('menu.add.image')}
 		</div>
 		<div
@@ -46,7 +44,7 @@
 			on:click={() => addElement('video')}
 			on:keydown={() => addElement('video')}
 		>
-			<Fa icon={faVideo} />
+			<i class="fa-solid fa-video"></i>
 			{@html $t('menu.add.video')}
 		</div>
 		<div
@@ -57,7 +55,7 @@
 			on:click={() => addElement('audio')}
 			on:keydown={() => addElement('audio')}
 		>
-			<Fa icon={faFileAudio} />
+			<i class="fa-regular fa-file-audio"></i>
 			{@html $t('menu.add.audio')}
 		</div>
 		<div
@@ -68,7 +66,7 @@
 			on:click={() => addElement('link')}
 			on:keydown={() => addElement('link')}
 		>
-			<Fa icon={faLink} />
+			<i class="fa-solid fa-link"></i>
 			{@html $t('menu.add.link')}
 		</div>
 		<div
@@ -79,7 +77,7 @@
 			on:click={() => addElement('timer')}
 			on:keydown={() => addElement('timer')}
 		>
-			<Fa icon={faStopwatch} />
+			<i class="fa-solid fa-stopwatch"></i>
 			{@html $t('menu.add.timer')}
 		</div>
 	</div>
