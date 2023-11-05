@@ -1,30 +1,72 @@
 <script lang="ts">
 	import { t } from '$lib/stores/language-store.ts';
+	import { setElementProps } from '$lib/stores/selected-element.store.ts';
 	import { textTypes } from '$lib/utils.ts';
-	import Editor from '../Editor/Editor.svelte';
 	import Select from '../Select/Select.svelte';
 
 	export let props: Editor.TextElementProps;
-	let _type: string;
+	let type: string;
 
-	// $: type = (_type: "header" | "content") => setType(_type);
+	function changeText(value: string): void {
+		props.text = value;
+		setElementProps({...props});
+	}
 
-	function setColor(ev) {
-		console.log(ev)
+	function changeColor(value: string): void {
+		props.appearance.color = value;
+		setElementProps({...props});
+	}
+
+	function changeAppearance(): void {
+		props.appearance.type = type;
+		setElementProps({...props});
 	}
 
 </script>
 
-<div class="text-container pure-g">
-	<div class="pure-u-1-1 mt-1">
-		<input type="text" bind:value={props.text} class="pure-input-1-2" />
+<div class="text-container">
+	<div class="flex-column mt-1">
+		<label class="label" for="type">{@html $t('slider.text.appearance')}</label>
+		<div class="control">
+			<Select
+				id="type"
+				bind:selected={type}
+				items={textTypes} 
+				on:typeChanged={changeAppearance}
+			/>
+		</div>
 	</div>
-	<div class="pure-u-1-1 flex-column mt-1">
-		{@html $t('slider.text.appearance')}
-		<Select items={textTypes} bind:selected={_type} />
+	<div class="mt-1">
+		{#if props.appearance.type === 'header'}
+			<div class="control">
+				<input 
+					type="text" 
+					bind:value={props.text} 
+					class="input"
+					on:input={(ev) => changeText(ev.target.value)}
+				/>
+			</div>
+		{:else}
+			<div class="control">
+				<textarea
+					class="input"
+					on:input={(ev) => changeText(ev.target.value)}
+				>
+					{props.text}
+				</textarea>
+			</div>
+		{/if}
 	</div>
-	<div class="pure-u-1-1 flex-column mt-1">
-		{@html $t('slider.text.color')}
-		<input type="color" id="colorpicker" bind:value={props.appearance.color} on:change={(ev) => setColor(ev.target.value)}>
+	<div class="flex-column mt-1">
+		<label class="label" for="colorpicker">{@html $t('slider.text.color')}</label>
+		<div class="control">
+			<input 
+				type="color" 
+				id="colorpicker"
+				class="input"
+				bind:value={props.appearance.color} 
+				on:input={(ev) => changeColor(ev.target.value)}
+			/>
+		</div>
 	</div>
 </div>

@@ -57,8 +57,8 @@
 		"@fortawesome/fontawesome-svg-core": "^6.4.2",
 		"@fortawesome/free-regular-svg-icons": "^6.4.2",
 		"@fortawesome/free-solid-svg-icons": "^6.4.2",
+		"bulma": "^0.9.4",
 		"dompurify": "^3.0.6",
-		"purecss": "^3.0.0",
 		"svelte-color-picker": "^1.0.7",
 		"svelte-fa": "^3.0.4"
 	}

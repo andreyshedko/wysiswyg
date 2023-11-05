@@ -2,17 +2,23 @@
 	import { setElementProps } from '$lib/stores/selected-element.store.ts';
 	import { toggleSlider } from '$lib/stores/slider-store.ts';
 	import { generateStyles } from '$lib/utils.ts';
-	import { onMount } from 'svelte';
+	import { onDestroy, onMount } from 'svelte';
+	import { props as store } from '$lib/stores/selected-element.store.ts';
 
 	export let props: Editor.TextElementProps;
     let styles: string;
-	console.log(props)
+	const unsubscribeProps = store.subscribe((_props) => {
+		props = _props;
+		styles = generateStyles(props.appearance);
+	});
 
     onMount(() => {
 		if (props && props.appearance) {
 			styles = generateStyles(props.appearance)
 		}
 	});
+
+	onDestroy(() => unsubscribeProps());
 
 	function selectElement(e: MouseEvent) {
 		if (e.target) {

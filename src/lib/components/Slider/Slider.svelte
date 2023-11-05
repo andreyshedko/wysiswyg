@@ -34,9 +34,9 @@
 {#if state?.isOpen}
 	<div class="slider">
         <div class="slider-header">
-            <div class="slider-title">
+            <h5 class="title is-5 slider-title">
                 {name}
-            </div>
+            </h5>
             <div class="slider-close-icon"
                 on:click={() => toggleSlider(false)}
                 on:keydown={(event) => closeSidebar(event)}
