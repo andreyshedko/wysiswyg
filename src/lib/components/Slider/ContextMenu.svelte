@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { createEventDispatcher } from "svelte";
+
     // pos is cursor position when right click occur
     let pos = { x: 0, y: 0 }
     // menu is dimension (height and width) of context menu
@@ -8,8 +10,7 @@
     // showMenu is state of context-menu visibility
     let showMenu = false;
     // to display some text
-
-    let content;
+    const dispatch = createEventDispatcher();
 
     function rightClickContextMenu(e){
         showMenu = true
@@ -47,13 +48,13 @@
         }
     }
     function setBold(){
-        content.textContent = "Add and item..."
+        dispatch('bold');
     }
     function setItalic(){
-        content.textContent = "Printed..."
+        dispatch('italic');
     }
     function setUnderline(){
-        content.textContent = "Zooom..."
+        dispatch('underline');
     }
     let menuItems = [
         {

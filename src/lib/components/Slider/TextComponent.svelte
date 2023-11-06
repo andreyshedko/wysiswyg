@@ -23,9 +23,18 @@
 		setElementProps({ ...props });
 	}
 
+	function applyBoldToSelection(): void {
+		let selection = window.getSelection()?.toString();
+		const range = window.getSelection()?.getRangeAt(0);
+		const node = document.createElement("b");
+		node.innerText = selection!;
+		range?.deleteContents();
+		range?.insertNode(node);
+	}
+
 	function showContextMenu(): void {
 		const target = document.body;
-		new ContextMenu({ target });
+		new ContextMenu({ target }).$on('bold', () => applyBoldToSelection());
 	}
 </script>
 
@@ -33,12 +42,12 @@
 	<div class="flex-column mt-1">
 		<label class="label" for="type">{@html $t('slider.text.appearance')}</label>
 		<div class="control">
-			<Select 
+			<Select
 				id="type"
 				selectedType={props.appearance.type}
-				bind:selected={type} 
-				items={textTypes} 
-				on:typeChanged={changeAppearance} 
+				bind:selected={type}
+				items={textTypes}
+				on:typeChanged={changeAppearance}
 			/>
 		</div>
 	</div>
@@ -65,7 +74,7 @@
 					on:contextmenu={() => showContextMenu()}
 				>
 					{props.text}
-			</div>
+				</div>
 			</div>
 		{/if}
 	</div>
