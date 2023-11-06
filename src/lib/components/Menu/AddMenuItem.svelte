@@ -12,7 +12,7 @@
 </script>
 
 <div class="dropdown">
-	<i class="fa-regular fa-plus"></i>
+	<i class="fa fa-plus"></i>
 	<div class="dropdown-content position">
 		<div
 			role="menuitem"
@@ -22,7 +22,7 @@
 			on:click={() => addElement('text')}
 			on:keydown={() => addElement('text')}
 		>
-			<i class="fa-solid fa-font"></i>
+			<i class="fa fa-font"></i>
 			{@html $t('menu.add.text')}
 		</div>
 		<div
@@ -33,7 +33,7 @@
 			on:click={() => addElement('image')}
 			on:keydown={() => addElement('image')}
 		>
-			<i class="fa-regular fa-image"></i>
+			<i class="fa fa-image"></i>
 			{@html $t('menu.add.image')}
 		</div>
 		<div
@@ -44,7 +44,7 @@
 			on:click={() => addElement('video')}
 			on:keydown={() => addElement('video')}
 		>
-			<i class="fa-solid fa-video"></i>
+			<i class="fa fa-video"></i>
 			{@html $t('menu.add.video')}
 		</div>
 		<div
@@ -55,7 +55,7 @@
 			on:click={() => addElement('audio')}
 			on:keydown={() => addElement('audio')}
 		>
-			<i class="fa-regular fa-file-audio"></i>
+			<i class="fa fa-file-audio"></i>
 			{@html $t('menu.add.audio')}
 		</div>
 		<div
@@ -66,7 +66,7 @@
 			on:click={() => addElement('link')}
 			on:keydown={() => addElement('link')}
 		>
-			<i class="fa-solid fa-link"></i>
+			<i class="fa fa-link"></i>
 			{@html $t('menu.add.link')}
 		</div>
 		<div
@@ -77,7 +77,7 @@
 			on:click={() => addElement('timer')}
 			on:keydown={() => addElement('timer')}
 		>
-			<i class="fa-solid fa-stopwatch"></i>
+			<i class="fa fa-stopwatch"></i>
 			{@html $t('menu.add.timer')}
 		</div>
 	</div>

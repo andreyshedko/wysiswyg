@@ -55,14 +55,17 @@
 			</div>
 		{:else}
 			<div class="control">
-				<textarea
+				<div
+					contenteditable="true"
+					role="text"
+					aria-roledescription="text"
 					id="textarea"
 					class="textarea"
-					on:input={(ev) => changeText(ev.target.value)}
+					on:input={(ev) => changeText(ev.target.innerText)}
 					on:contextmenu={() => showContextMenu()}
 				>
 					{props.text}
-				</textarea>
+			</div>
 			</div>
 		{/if}
 	</div>

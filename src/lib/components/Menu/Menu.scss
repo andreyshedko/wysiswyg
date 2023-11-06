@@ -14,7 +14,7 @@
     align-items: center;
     opacity: 0.9;
 
-    .fa-solid, .fa-regular {
+    .fa, .fa-solid, .fa-regular {
         color: #f9f9f9
     }
 
@@ -39,8 +39,12 @@
         z-index: 1;
         color: darken($color: rgb(47, 47, 46), $amount: 0);
         width: 10vw;
-        top: 4.8vh;
+        padding-top: 2rem;
+        top: 4vh;
         border-radius: 0.2rem;
+        margin-top: 0.5rem;
+        padding-top: initial;
+        padding-bottom: initial;
 
         &.position {
             right: 0;

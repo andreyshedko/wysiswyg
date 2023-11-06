@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     // pos is cursor position when right click occur
     let pos = { x: 0, y: 0 }
     // menu is dimension (height and width) of context menu
@@ -8,9 +8,7 @@
     // showMenu is state of context-menu visibility
     let showMenu = false;
     // to display some text
-    /**
-	 * @type {HTMLDivElement}
-	 */
+
     let content;
 
     function rightClickContextMenu(e){
