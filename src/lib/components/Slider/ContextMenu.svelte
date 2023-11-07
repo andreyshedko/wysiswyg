@@ -12,7 +12,7 @@
     // to display some text
     const dispatch = createEventDispatcher();
 
-    function rightClickContextMenu(e){
+    function rightClickContextMenu(e: { clientX: any; clientY: any; }){
         showMenu = true
         browser = {
             w: window.innerWidth,
@@ -39,7 +39,7 @@
     /**
 	 * @param {HTMLElement} node
 	 */
-    function getContextMenuDimension(node){
+    function getContextMenuDimension(node: HTMLDivElement){
         let height = node.offsetHeight
         let width = node.offsetWidth
         menu = {

@@ -32,9 +32,30 @@
 		range?.insertNode(node);
 	}
 
+	function applyItalicToSelection(): void {
+		let selection = window.getSelection()?.toString();
+		const range = window.getSelection()?.getRangeAt(0);
+		const node = document.createElement("i");
+		node.innerText = selection!;
+		range?.deleteContents();
+		range?.insertNode(node);
+	}
+
+	function applyUnderlineToSelection(): void {
+		let selection = window.getSelection()?.toString();
+		const range = window.getSelection()?.getRangeAt(0);
+		const node = document.createElement("u");
+		node.innerText = selection!;
+		range?.deleteContents();
+		range?.insertNode(node);
+	}
+
 	function showContextMenu(): void {
 		const target = document.body;
-		new ContextMenu({ target }).$on('bold', () => applyBoldToSelection());
+		const contextMenu = new ContextMenu({ target })
+		contextMenu.$on('bold', () => applyBoldToSelection());
+		contextMenu.$on('italic', () => applyItalicToSelection());
+		contextMenu.$on('underline', () => applyUnderlineToSelection());
 	}
 </script>
 
@@ -64,6 +85,8 @@
 			</div>
 		{:else}
 			<div class="control">
+				<!-- svelte-ignore a11y-unknown-role -->
+				<!-- svelte-ignore a11y-no-static-element-interactions -->
 				<div
 					contenteditable="true"
 					role="text"
