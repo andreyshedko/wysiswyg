@@ -54,6 +54,6 @@
         draggable="true"
 		style={styles}
     >
-		{props?.text ?? "This is an DIV text element"}
+		{@html props?.text ?? "This is an DIV text element"}
 	</div>
 {/if}

@@ -26,33 +26,36 @@
 	function applyBoldToSelection(): void {
 		let selection = window.getSelection()?.toString();
 		const range = window.getSelection()?.getRangeAt(0);
-		const node = document.createElement("b");
+		const node = document.createElement('b');
 		node.innerText = selection!;
 		range?.deleteContents();
 		range?.insertNode(node);
+		changeText(document.getElementById("textarea")?.innerHTML!);
 	}
 
 	function applyItalicToSelection(): void {
 		let selection = window.getSelection()?.toString();
 		const range = window.getSelection()?.getRangeAt(0);
-		const node = document.createElement("i");
+		const node = document.createElement('i');
 		node.innerText = selection!;
 		range?.deleteContents();
 		range?.insertNode(node);
+		changeText(document.getElementById("textarea")?.innerHTML!);
 	}
 
 	function applyUnderlineToSelection(): void {
 		let selection = window.getSelection()?.toString();
 		const range = window.getSelection()?.getRangeAt(0);
-		const node = document.createElement("u");
+		const node = document.createElement('u');
 		node.innerText = selection!;
 		range?.deleteContents();
 		range?.insertNode(node);
+		changeText(document.getElementById("textarea")?.innerHTML!);
 	}
 
 	function showContextMenu(): void {
 		const target = document.body;
-		const contextMenu = new ContextMenu({ target })
+		const contextMenu = new ContextMenu({ target });
 		contextMenu.$on('bold', () => applyBoldToSelection());
 		contextMenu.$on('italic', () => applyItalicToSelection());
 		contextMenu.$on('underline', () => applyUnderlineToSelection());
@@ -96,7 +99,7 @@
 					on:input={(ev) => changeText(ev.target.innerText)}
 					on:contextmenu={() => showContextMenu()}
 				>
-					{props.text}
+					{@html props.text}
 				</div>
 			</div>
 		{/if}
