@@ -7,6 +7,13 @@
 
 	export let props: Editor.TextElementProps;
 	let type: string;
+	let prevText = props.text;
+
+	$: {
+		if (prevText !== props.text) {
+			document.getElementById('textarea')!.innerHTML = props.text;
+		}
+	}
 
 	function changeText(value: string): void {
 		props.text = value;
@@ -25,22 +32,22 @@
 
 	function applyBoldToSelection(): void {
 		let selection = window.getSelection()?.toString();
-		const range = window.getSelection()?.getRangeAt(0);
-		const node = document.createElement('b');
+		let range = window.getSelection()?.getRangeAt(0);
+		let node = document.createElement('b');
 		node.innerText = selection!;
 		range?.deleteContents();
 		range?.insertNode(node);
-		changeText(document.getElementById("textarea")?.innerHTML!);
+		changeText(document.getElementById('textarea')?.innerHTML!);
 	}
 
 	function applyItalicToSelection(): void {
 		let selection = window.getSelection()?.toString();
 		const range = window.getSelection()?.getRangeAt(0);
-		const node = document.createElement('i');
+		let node = document.createElement('i');
 		node.innerText = selection!;
 		range?.deleteContents();
 		range?.insertNode(node);
-		changeText(document.getElementById("textarea")?.innerHTML!);
+		changeText(document.getElementById('textarea')?.innerHTML!);
 	}
 
 	function applyUnderlineToSelection(): void {
@@ -50,12 +57,13 @@
 		node.innerText = selection!;
 		range?.deleteContents();
 		range?.insertNode(node);
-		changeText(document.getElementById("textarea")?.innerHTML!);
+		changeText(document.getElementById('textarea')?.innerHTML!);
 	}
 
-	function showContextMenu(): void {
+	function showContextMenu(event: MouseEvent): void {
+		event.preventDefault();
 		const target = document.body;
-		const contextMenu = new ContextMenu({ target });
+		const contextMenu = new ContextMenu({ target, props: { event } });
 		contextMenu.$on('bold', () => applyBoldToSelection());
 		contextMenu.$on('italic', () => applyItalicToSelection());
 		contextMenu.$on('underline', () => applyUnderlineToSelection());
@@ -96,8 +104,7 @@
 					aria-roledescription="text"
 					id="textarea"
 					class="textarea"
-					on:input={(ev) => changeText(ev.target.innerText)}
-					on:contextmenu={() => showContextMenu()}
+					on:contextmenu={(ev) => showContextMenu(ev)}
 				>
 					{@html props.text}
 				</div>
