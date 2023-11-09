@@ -4,14 +4,14 @@
 	import { textTypes } from '$lib/utils.ts';
 	import Select from '../Select/Select.svelte';
 	import ContextMenu from './ContextMenu.svelte';
-	import Range from './Range.svelte'
+	import Range from './Range.svelte';
 
 	export let props: Editor.TextElementProps;
 	let type: string;
 	let prevText = props.text;
 
 	$: {
-		if (props.appearance.type === "content" && (prevText !== props.text)) {
+		if (props.appearance.type === 'content' && prevText !== props.text) {
 			document.getElementById('textarea')!.innerHTML = props.text;
 		}
 	}
@@ -33,6 +33,11 @@
 
 	function changeSize(value: string): void {
 		props.appearance.size = `${value}px`;
+		setElementProps({ ...props });
+	}
+
+	function changeWheight(value: string): void {
+		props.appearance.wheight = value;
 		setElementProps({ ...props });
 	}
 
@@ -132,7 +137,19 @@
 	<div class="flex-column mt-1">
 		<label class="label" for="size">{@html $t('slider.text.size')}</label>
 		<div class="control">
-			<Range on:change={(e) => changeSize(e.detail.value)} id="size"/>
+			<Range min={1} on:change={(e) => changeSize(e.detail.value)} id="size" />
+		</div>
+	</div>
+	<div class="flex-column mt-1">
+		<label class="label" for="wheight">{@html $t('slider.text.wheight')}</label>
+		<div class="control">
+			<Range
+				initialValue={100}
+				min={100}
+				max={900}
+				on:change={(e) => changeWheight(e.detail.value)}
+				id="wheight"
+			/>
 		</div>
 	</div>
 </div>
