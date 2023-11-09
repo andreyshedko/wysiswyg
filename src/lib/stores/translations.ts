@@ -20,7 +20,8 @@ export const translations =  {
         "slider.text": "Text",
         "slider.text.context": "You may apply styles to the selected text by right click",
         "slider.text.appearance": "Appearance",
-        "slider.text.color": "Color"
+        "slider.text.color": "Color",
+        "slider.text.size": "Size"
     },
     "cz": {
         "menu.file": "Soubor",
@@ -43,6 +44,7 @@ export const translations =  {
         "slider.text": "Text",
         "slider.text.context": "Na vybraný text můžete použít styly kliknutím pravým tlačítkem myši",
         "slider.text.appearance": "Vzhled",
-        "slider.text.color": "Barva"
+        "slider.text.color": "Barva",
+        "slider.text.size": "Velikost"
     },
 };

@@ -4,13 +4,14 @@
 	import { textTypes } from '$lib/utils.ts';
 	import Select from '../Select/Select.svelte';
 	import ContextMenu from './ContextMenu.svelte';
+	import Range from './Range.svelte'
 
 	export let props: Editor.TextElementProps;
 	let type: string;
 	let prevText = props.text;
 
 	$: {
-		if (prevText !== props.text) {
+		if (props.appearance.type === "content" && (prevText !== props.text)) {
 			document.getElementById('textarea')!.innerHTML = props.text;
 		}
 	}
@@ -27,6 +28,11 @@
 
 	function changeAppearance(): void {
 		props.appearance.type = type;
+		setElementProps({ ...props });
+	}
+
+	function changeSize(value: string): void {
+		props.appearance.size = `${value}px`;
 		setElementProps({ ...props });
 	}
 
@@ -121,6 +127,12 @@
 				bind:value={props.appearance.color}
 				on:change={(ev) => changeColor(ev.target.value)}
 			/>
+		</div>
+	</div>
+	<div class="flex-column mt-1">
+		<label class="label" for="size">{@html $t('slider.text.size')}</label>
+		<div class="control">
+			<Range on:change={(e) => changeSize(e.detail.value)} id="size"/>
 		</div>
 	</div>
 </div>

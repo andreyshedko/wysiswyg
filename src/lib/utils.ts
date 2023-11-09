@@ -55,12 +55,21 @@ export function generateStyles(appearance: Record<string, string>): string {
     Object.entries(appearance)
         .filter((entry) => entry[0] !== 'type')
         .forEach((entry) => {
-            let key = entry[0];
+            let key = replaces(entry[0]);
             let value = entry[1];
             if (value) {
-                stylesStringArr.push(`${key}: ${value}`)
+                stylesStringArr.push(`${key}: ${value};`)
             }
         });
 
-    return stylesStringArr.join(",");
+    return stylesStringArr.join(" ");
+}
+
+function replaces(value: string): string {
+    const values = new Map<string, string>().set("size", "font-size");
+    if (values.has(value)) {
+        return values.get(value)!;
+    } else {
+        return value;
+    }
 }
