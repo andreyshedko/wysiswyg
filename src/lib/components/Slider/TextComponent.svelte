@@ -95,8 +95,8 @@
 				/>
 			</div>
 		{:else}
+			<span class="is-size-7">{@html $t('slider.text.context')}</span>
 			<div class="control">
-				<!-- svelte-ignore a11y-unknown-role -->
 				<!-- svelte-ignore a11y-no-static-element-interactions -->
 				<div
 					contenteditable="true"

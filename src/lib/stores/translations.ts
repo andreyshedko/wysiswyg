@@ -18,6 +18,7 @@ export const translations =  {
         "menu.add.link": "Link",
         "menu.add.timer": "Timer",
         "slider.text": "Text",
+        "slider.text.context": "You may apply styles to the selected text by right click",
         "slider.text.appearance": "Appearance",
         "slider.text.color": "Color"
     },
@@ -40,6 +41,7 @@ export const translations =  {
         "menu.add.link": "Odkaz",
         "menu.add.timer": "Časovač",
         "slider.text": "Text",
+        "slider.text.context": "Na vybraný text můžete použít styly kliknutím pravým tlačítkem myši",
         "slider.text.appearance": "Vzhled",
         "slider.text.color": "Barva"
     },
