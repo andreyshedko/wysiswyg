@@ -68,7 +68,8 @@ export function generateStyles(appearance: Record<string, string>): string {
 function replaces(value: string): string {
     const values = new Map<string, string>()
         .set("size", "font-size")
-        .set("wheight", "font-weight");
+        .set("wheight", "font-weight")
+        .set("lineHeight", "line-height");
     if (values.has(value)) {
         return values.get(value)!;
     } else {

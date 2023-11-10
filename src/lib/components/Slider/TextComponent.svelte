@@ -41,6 +41,11 @@
 		setElementProps({ ...props });
 	}
 
+	function changeLineHeight(value: string): void {
+		props.appearance.lineHeight = `${value}px`;
+		setElementProps({ ...props });
+	}
+
 	function applyBoldToSelection(): void {
 		let selection = window.getSelection()?.toString();
 		let range = window.getSelection()?.getRangeAt(0);
@@ -111,10 +116,11 @@
 				<!-- svelte-ignore a11y-no-static-element-interactions -->
 				<div
 					contenteditable="true"
-					role="text"
+					role="contentinfo"
 					aria-roledescription="text"
 					id="textarea"
 					class="textarea"
+					on:input={(ev) => changeText(ev.target.innerHTML)}
 					on:contextmenu={(ev) => showContextMenu(ev)}
 				>
 					{@html props.text}
@@ -137,7 +143,7 @@
 	<div class="flex-column mt-1">
 		<label class="label" for="size">{@html $t('slider.text.size')}</label>
 		<div class="control">
-			<Range min={1} on:change={(e) => changeSize(e.detail.value)} id="size" />
+			<Range initialValue={1} min={1} on:change={(e) => changeSize(e.detail.value)} id="size" />
 		</div>
 	</div>
 	<div class="flex-column mt-1">
@@ -149,6 +155,18 @@
 				max={900}
 				on:change={(e) => changeWheight(e.detail.value)}
 				id="wheight"
+			/>
+		</div>
+	</div>
+	<div class="flex-column mt-1">
+		<label class="label" for="line-height">{@html $t('slider.text.lineHeight')}</label>
+		<div class="control">
+			<Range
+				initialValue={1}
+				min={1}
+				max={100}
+				on:change={(e) => changeLineHeight(e.detail.value)}
+				id="line-height"
 			/>
 		</div>
 	</div>
