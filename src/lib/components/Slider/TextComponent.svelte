@@ -46,6 +46,16 @@
 		setElementProps({ ...props });
 	}
 
+	function changeLetterSpacing(value: string): void {
+		props.appearance.letterSpacing = `${value}px`;
+		setElementProps({ ...props });
+	}
+
+	function changeTextIndent(value: string): void {
+		props.appearance.textIndent = `${value}px`;
+		setElementProps({ ...props });
+	}
+
 	function applyBoldToSelection(): void {
 		let selection = window.getSelection()?.toString();
 		let range = window.getSelection()?.getRangeAt(0);
@@ -167,6 +177,30 @@
 				max={100}
 				on:change={(e) => changeLineHeight(e.detail.value)}
 				id="line-height"
+			/>
+		</div>
+	</div>
+	<div class="flex-column mt-1">
+		<label class="label" for="letter-spacing">{@html $t('slider.text.letterSpacing')}</label>
+		<div class="control">
+			<Range
+				initialValue={1}
+				min={1}
+				max={100}
+				on:change={(e) => changeLetterSpacing(e.detail.value)}
+				id="letter-spacing"
+			/>
+		</div>
+	</div>
+	<div class="flex-column mt-1">
+		<label class="label" for="text-indent">{@html $t('slider.text.textIndent')}</label>
+		<div class="control">
+			<Range
+				initialValue={1}
+				min={1}
+				max={100}
+				on:change={(e) => changeTextIndent(e.detail.value)}
+				id="text-indent"
 			/>
 		</div>
 	</div>

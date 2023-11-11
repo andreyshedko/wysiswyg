@@ -69,7 +69,9 @@ function replaces(value: string): string {
     const values = new Map<string, string>()
         .set("size", "font-size")
         .set("wheight", "font-weight")
-        .set("lineHeight", "line-height");
+        .set("lineHeight", "line-height")
+        .set("letterSpacing", "letter-spacing")
+        .set("textIndent", "text-indent");
     if (values.has(value)) {
         return values.get(value)!;
     } else {

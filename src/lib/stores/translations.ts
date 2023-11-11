@@ -23,7 +23,9 @@ export const translations =  {
         "slider.text.color": "Color",
         "slider.text.size": "Size",
         "slider.text.wheight": "Wheight",
-        "slider.text.lineHeight": "Line Height"
+        "slider.text.lineHeight": "Line Height",
+        "slider.text.letterSpacing": "Letter Spacing",
+        "slider.text.textIndent": "Text Indent"
     },
     "cz": {
         "menu.file": "Soubor",
@@ -49,6 +51,8 @@ export const translations =  {
         "slider.text.color": "Barva",
         "slider.text.size": "Velikost",
         "slider.text.wheight": "Hmotnost",
-        "slider.text.lineHeight": "Výška řádku"
+        "slider.text.lineHeight": "Výška řádku",
+        "slider.text.letterSpacing": "Mezery mezi písmeny",
+        "slider.text.textIndent": "Odsazení textu"
     },
 };
