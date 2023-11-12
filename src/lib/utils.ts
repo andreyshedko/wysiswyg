@@ -72,7 +72,7 @@ export function generateStyles(appearance: Record<string, string>): string {
     return stylesStringArr.join(" ");
 }
 
-function replaces(value: string): string {
+export function replaces(value: string): string {
     const values = new Map<string, string>()
         .set("size", "font-size")
         .set("wheight", "font-weight")
