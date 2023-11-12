@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap');
+@import "../../node_modules/bulma/css/bulma.min.css";
+@import "../../node_modules/@fortawesome/fontawesome-free/css/all.min.css";
+
+:root {
+    font-size: calc(15px + 0.390625vw);
+    box-sizing: border-box;
+}
+
+::before,
+::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    font-size: calc(15px + 0.390625vw);
+    font-family: "Open Sans";
+}
+
+
+/*
+  * When adding a button, reset its background, or else it will look different across browsers.
+  */
+button {
+    appearance: none;
+    background: transparent;
+}
+
+/*
+  * When adding an image, define max-width: 100%, so that the image resizes when the screen is small. 
+  * Otherwise, the browser will show a horizontal scroll bar.
+  */
+img {
+    max-width: 100%;
+    object-fit: cover; // When you resize an image in CSS, it could be compressed or stretched if the aspect ratio is not consistent with the width and height of the image.
+    aspect-ratio: 16/9; // Maintaining proper aspect ratios in your media and layout containers gets a little bit more straightforward.
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.active {
+    & ::after {
+        border: solid 4px #33ada9;
+    }
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.mt-1 {
+    margin-top: 1rem;
+}
+
+:active ::after {
+    box-shadow: 0 2px 1px -2px red;
+}
+
+select {
+    width: 100%;
+    max-width: initial;
+}

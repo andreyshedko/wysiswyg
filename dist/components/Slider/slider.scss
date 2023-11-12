@@ -1,0 +1,44 @@
+.slider {
+    height: 100%;
+    width: 25vw;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: darken($color: rgb(163, 163, 161), $amount: 0);
+    overflow-x: hidden;
+    transition: 0.5s;
+    color: darken($color: rgb(47, 47, 46), $amount: 0);
+    opacity: 0.9;
+
+    svg.svelte-fa {
+        color: #f9f9f9
+    }
+
+    .slider-header {
+        display: inline-flex;
+        justify-content: space-between;
+        width: 100%;
+        box-shadow: 0 2px 1px -2px #f9f9f9;
+
+        .slider-title {
+            padding: 0.5rem;
+            margin: initial;
+        }
+
+        .slider-close-icon {
+            padding: 0.5rem;
+            cursor: pointer;
+        }
+    }
+
+    .slider-body {
+        display: flex;
+        flex-direction: column;
+
+        .text-container {
+            padding-left: 1rem;
+            padding-right:1rem;
+        }
+    }
+}

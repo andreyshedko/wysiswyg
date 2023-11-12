@@ -1,0 +1,16 @@
+.editor {
+    resize: both;
+    overflow: auto;
+    box-shadow: inset 1px 1px 1px rgba(0, 0, 0, .1), 1px 1px 1px rgba(0, 0, 0, .1);
+    min-width: 100vw;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    outline: initial;
+    position: fixed;
+    top: 0;
+
+    & :focus-visible {
+        outline: initial;
+    }
+}
