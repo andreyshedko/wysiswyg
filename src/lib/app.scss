@@ -70,3 +70,8 @@ input[type=text] {
 :active ::after {
     box-shadow: 0 2px 1px -2px red;
 }
+
+select {
+    width: 100%;
+    max-width: initial;
+}

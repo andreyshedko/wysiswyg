@@ -16,6 +16,13 @@ export const textTypes = [
     { key: "content", value: "Content" }
 ];
 
+export const alignTypes = [
+    { key: "auto", value: "Auto" },
+    { key: "right", value: "Right" },
+    { key: "center", value: "Center" },
+    { key: "justify", value: "Justify" },
+];
+
 const elementsMap = new Map<Editor.ElementType, any>()
     .set('text', Text);
 
@@ -71,10 +78,65 @@ function replaces(value: string): string {
         .set("wheight", "font-weight")
         .set("lineHeight", "line-height")
         .set("letterSpacing", "letter-spacing")
+        .set("alignment", "text-align")
         .set("textIndent", "text-indent");
     if (values.has(value)) {
         return values.get(value)!;
     } else {
         return value;
     }
+}
+
+export function changeText(props: Editor.TextElementProps, value: string): void {
+    props.text = value;
+    setElementProps({ ...props });
+}
+
+export function changeColor(props: Editor.TextElementProps, value: string): void {
+    props.appearance.color = value;
+    setElementProps({ ...props });
+}
+
+export function changeAppearance(props: Editor.TextElementProps, type: "header" | "content"): void {
+    props.appearance.type = type;
+    setElementProps({ ...props });
+}
+
+export function changeSize(props: Editor.TextElementProps, value: string): void {
+    props.appearance.size = `${value}px`;
+    setElementProps({ ...props });
+}
+
+export function changeWheight(props: Editor.TextElementProps, value: string): void {
+    props.appearance.wheight = value;
+    setElementProps({ ...props });
+}
+
+export function changeLineHeight(props: Editor.TextElementProps,  value: string): void {
+    props.appearance.lineHeight = `${value}px`;
+    setElementProps({ ...props });
+}
+
+export function changeLetterSpacing(props: Editor.TextElementProps, value: string): void {
+    props.appearance.letterSpacing = `${value}px`;
+    setElementProps({ ...props });
+}
+
+export function changeTextIndent(props: Editor.TextElementProps, value: string): void {
+    props.appearance.textIndent = `${value}px`;
+    setElementProps({ ...props });
+}
+
+export function changeMargin(props: Editor.TextElementProps, value: string): void {
+    props.appearance.margin = `${value}px`;
+    setElementProps({ ...props });
+}
+
+export function changeAlign(props: Editor.TextElementProps, value: string): void {
+    props.appearance.alignment = value;
+    setElementProps({ ...props });
+}
+
+export function transformCSSString(replace: string, value?: string): number | string | undefined {
+    return value?.includes(replace) ? +value?.replace(replace, '') : value;
 }
