@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { t } from '$lib/stores/language-store.ts';
-	import { setElementProps } from '$lib/stores/selected-element.store.ts';
 	import {
 		textTypes,
 		changeColor,
@@ -13,20 +12,14 @@
 		alignTypes,
 		transformCSSString,
 		changeText,
-
 		changeAppearance,
-
 		changeAlign
-
-
 	} from '$lib/utils.ts';
 	import Select from '../Select/Select.svelte';
 	import ContextMenu from './ContextMenu.svelte';
 	import Range from './Range.svelte';
 
 	export let props: Editor.TextElementProps;
-	let type: string;
-	let align: string;
 	let prevText = props.text;
 
 	$: {
