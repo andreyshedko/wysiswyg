@@ -1,3 +1,5 @@
+@import "../../colors";
+
 .slider {
     height: 100%;
     width: 25vw;
@@ -5,14 +7,14 @@
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: darken($color: rgb(163, 163, 161), $amount: 0);
+    background-color: $oxford-blue;
     overflow-x: hidden;
     transition: 0.5s;
-    color: darken($color: rgb(47, 47, 46), $amount: 0);
+    color: $mint-cream;
     opacity: 0.9;
 
     svg.svelte-fa {
-        color: #f9f9f9
+        color: $mint-cream;
     }
 
     .slider-header {
@@ -20,6 +22,10 @@
         justify-content: space-between;
         width: 100%;
         box-shadow: 0 2px 1px -2px #f9f9f9;
+
+        .title {
+            color: inherit;
+        }
 
         .slider-title {
             padding: 0.5rem;
@@ -35,6 +41,10 @@
     .slider-body {
         display: flex;
         flex-direction: column;
+
+        .label {
+            color: inherit;
+        }
 
         .text-container {
             padding-left: 1rem;

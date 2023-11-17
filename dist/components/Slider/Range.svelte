@@ -136,6 +136,8 @@ $:
 	>
 		<div class="range__track" bind:this={container}>
 			<div class="range__track--highlighted" bind:this={progressBar} />
+			<!-- svelte-ignore a11y-no-static-element-interactions -->
+			<!-- svelte-ignore a11y-mouse-events-have-key-events -->
 			<div
 				class="range__thumb"
 				class:range__thumb--holding={holding}

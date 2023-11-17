@@ -10,10 +10,13 @@
 
 	const unsubscribeProps = store.subscribe((_props) => {
 		props = _props;
-		styles = generateStyles(props.appearance);
+		if (props && props.appearance) {
+			styles = generateStyles(props.appearance);
+		}
 	});
 
 	onMount(() => {
+		console.log('17', props);
 		if (props && props.appearance) {
 			styles = generateStyles(props.appearance);
 		}

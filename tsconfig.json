@@ -11,5 +11,6 @@
 		"strict": true,
 		"moduleResolution": "NodeNext",
 		"allowImportingTsExtensions": true
-	}
+	},
+	"types": ["node", "jest", "@testing-library/jest-dom"],
 }

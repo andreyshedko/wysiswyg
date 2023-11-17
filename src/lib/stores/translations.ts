@@ -27,7 +27,11 @@ export const translations =  {
         "slider.text.letterSpacing": "Letter Spacing",
         "slider.text.textIndent": "Text Indent",
         "slider.text.margin": "Margin",
-        "slider.text.textAlign": "Text Align"
+        "slider.text.textAlign": "Text Align",
+        "slider.text.textGradient": "Text Gradient",
+        "slider.text.textGradient.colorBegin": "Gradient Color From",
+        "slider.text.textGradient.colorTo": "Gradient Color To",
+        "slider.text.textGradient.gradientDirection": "Gradient Direction"
     },
     "cz": {
         "menu.file": "Soubor",
@@ -57,6 +61,10 @@ export const translations =  {
         "slider.text.letterSpacing": "Mezery mezi písmeny",
         "slider.text.textIndent": "Odsazení textu",
         "slider.text.margin": "Margin",
-        "slider.text.textAlign": "Zarovnání textu"
+        "slider.text.textAlign": "Zarovnání textu",
+        "slider.text.textGradient": "Gradient textu",
+        "slider.text.textGradient.colorBegin": "Gradientní barva od",
+        "slider.text.textGradient.colorTo": "Gradientní barva do",
+        "slider.text.textGradient.gradientDirection": "Směr gradientu"
     },
 };

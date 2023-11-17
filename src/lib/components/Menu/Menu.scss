@@ -1,7 +1,9 @@
+@import "../../colors";
+
 .menu {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    background-color: darken($color: rgb(69, 69, 69), $amount: 0);
+    background-color: $oxford-blue;
     border-radius: 0.2rem;
     position: sticky;
     float: right;
@@ -15,7 +17,7 @@
     opacity: 0.9;
 
     .fa, .fa-solid, .fa-regular {
-        color: #f9f9f9
+        color: $mint-cream;
     }
 
     cursor: pointer;
@@ -34,10 +36,10 @@
     .dropdown-content {
         display: none;
         position: absolute;
-        background-color: darken($color: rgb(163, 163, 161), $amount: 0);
+        background-color: $berkeley-blue;
         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
         z-index: 1;
-        color: darken($color: rgb(47, 47, 46), $amount: 0);
+        color: $mint-cream;
         width: 10vw;
         padding-top: 2rem;
         top: 1.2rem;
@@ -63,7 +65,7 @@
             }
 
             &:hover {
-                background-color: rgba(0, 0, 0, 0.05);
+                background-color: $yale-blue;
             }
         }
     }

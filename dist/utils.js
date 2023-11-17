@@ -59,7 +59,7 @@ export function generateStyles(appearance) {
     });
     return stylesStringArr.join(" ");
 }
-function replaces(value) {
+export function replaces(value) {
     const values = new Map()
         .set("size", "font-size")
         .set("wheight", "font-weight")

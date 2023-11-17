@@ -1,5 +1,4 @@
 <script>import { t } from "../../stores/language-store.ts";
-import { setElementProps } from "../../stores/selected-element.store.ts";
 import {
   textTypes,
   changeColor,
@@ -19,8 +18,6 @@ import Select from "../Select/Select.svelte";
 import ContextMenu from "./ContextMenu.svelte";
 import Range from "./Range.svelte";
 export let props;
-let type;
-let align;
 let prevText = props.text;
 $: {
   if (props.appearance.type === "content" && prevText !== props.text) {

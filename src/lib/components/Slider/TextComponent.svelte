@@ -17,7 +17,8 @@
 	} from '$lib/utils.ts';
 	import Select from '../Select/Select.svelte';
 	import ContextMenu from './ContextMenu.svelte';
-	import Range from './Range.svelte';
+	import Range from '../Range/Range.svelte';
+	import Gradient from '../Gradient/Gradient.svelte';
 
 	export let props: Editor.TextElementProps;
 	let prevText = props.text;
@@ -246,5 +247,10 @@
 			items={alignTypes}
 			on:change={(ev) => changeAlign(props, ev.detail)}
 		/>
+	</div>
+	<div class="flex-column mt-1">
+		<!-- svelte-ignore a11y-label-has-associated-control -->
+		<label class="label">{@html $t('slider.text.textGradient')}</label>
+		<Gradient />
 	</div>
 </div>

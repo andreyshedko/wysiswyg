@@ -10,17 +10,17 @@
 	export let value = typeof initialValue === 'string' ? parseInt(initialValue) : initialValue;
 
 	let container: HTMLDivElement;
-    let thumb: HTMLDivElement;
+	let thumb: HTMLDivElement;
 	let progressBar: HTMLDivElement;
-	let element;
+	let element: HTMLDivElement;
 
 	// Internal State
 	let elementX: number;
-	let currentThumb;
+	let currentThumb: HTMLDivElement | null;
 	let holding = false;
 	let thumbHover = false;
 	let keydownAcceleration = 0;
-	let accelerationTimer;
+	let accelerationTimer: string | number | NodeJS.Timeout | undefined;
 
 	const dispatch = createEventDispatcher();
 
@@ -38,28 +38,28 @@
 	}
 
 	// Allows both bind:value and on:change for parent value retrieval
-	function setValue(val) {
+	function setValue(val: number) {
 		value = val;
 		dispatch('change', { value });
 	}
 
-	function onTrackEvent(e) {
+	function onTrackEvent(e: { type: string }) {
 		// Update value immediately before beginning drag
 		updateValueOnEvent(e);
 		onDragStart(e);
 	}
 
-	function onHover(e) {
+	function onHover(e: any) {
 		thumbHover = thumbHover ? false : true;
 	}
 
-	function onDragStart(e) {
+	function onDragStart(e: { type: string }) {
 		// If mouse event add a pointer events shield
 		if (e.type === 'mousedown') document.body.append(mouseEventShield);
 		currentThumb = thumb;
 	}
 
-	function onDragEnd(e) {
+	function onDragEnd(e: { type: string }) {
 		// If using mouse - remove pointer event shield
 		if (e.type === 'mouseup') {
 			if (document.body.contains(mouseEventShield)) document.body.removeChild(mouseEventShield);
@@ -70,7 +70,10 @@
 	}
 
 	// Check if mouse event cords overlay with an element's area
-	function isMouseInElement(event, element) {
+	function isMouseInElement(
+		event: { type?: string; clientX?: any; clientY?: any },
+		element: HTMLDivElement
+	) {
 		let rect = element.getBoundingClientRect();
 		let { clientX: x, clientY: y } = event;
 		if (x < rect.left || x >= rect.right) return false;
@@ -79,7 +82,7 @@
 	}
 
 	// Accessible keypress handling
-	function onKeyPress(e) {
+	function onKeyPress(e: { key: string; }) {
 		// Max out at +/- 10 to value per event (50 events / 5)
 		// 100 below is to increase the amount of events required to reach max velocity
 		if (keydownAcceleration < 50) keydownAcceleration++;
@@ -105,7 +108,7 @@
 		accelerationTimer = setTimeout(() => (keydownAcceleration = 1), 100);
 	}
 
-	function calculateNewValue(clientX) {
+	function calculateNewValue(clientX: number) {
 		// Find distance between cursor and element's left cord (20px / 2 = 10px) - Center of thumb
 		let delta = clientX - (elementX + 10);
 
@@ -179,6 +182,8 @@
 	>
 		<div class="range__track" bind:this={container}>
 			<div class="range__track--highlighted" bind:this={progressBar} />
+			<!-- svelte-ignore a11y-no-static-element-interactions -->
+			<!-- svelte-ignore a11y-mouse-events-have-key-events -->
 			<div
 				class="range__thumb"
 				class:range__thumb--holding={holding}
