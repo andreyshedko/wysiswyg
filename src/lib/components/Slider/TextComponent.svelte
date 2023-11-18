@@ -13,7 +13,8 @@
 		transformCSSString,
 		changeText,
 		changeAppearance,
-		changeAlign
+		changeAlign,
+		changeGradient
 	} from '$lib/utils.ts';
 	import Select from '../Select/Select.svelte';
 	import ContextMenu from './ContextMenu.svelte';
@@ -173,7 +174,7 @@
 				initialValue={1}
 				min={1}
 				max={100}
-				value={transformCSSString('px', props.appearance.lineHeight, ) || 1}
+				value={transformCSSString('px', props.appearance.lineHeight) || 1}
 				on:change={(e) => changeLineHeight(props, e.detail.value)}
 				id="line-height"
 			/>
@@ -193,7 +194,7 @@
 				initialValue={1}
 				min={1}
 				max={100}
-				value={transformCSSString( 'px', props.appearance.letterSpacing) || 1}
+				value={transformCSSString('px', props.appearance.letterSpacing) || 1}
 				on:change={(e) => changeLetterSpacing(props, e.detail.value)}
 				id="letter-spacing"
 			/>
@@ -213,7 +214,7 @@
 				initialValue={1}
 				min={1}
 				max={100}
-				value={transformCSSString('px', props.appearance.textIndent, ) || 1}
+				value={transformCSSString('px', props.appearance.textIndent) || 1}
 				on:change={(e) => changeTextIndent(props, e.detail.value)}
 				id="text-indent"
 			/>
@@ -233,7 +234,7 @@
 				initialValue={1}
 				min={1}
 				max={100}
-				value={transformCSSString('px', props.appearance.margin, ) || 1}
+				value={transformCSSString('px', props.appearance.margin) || 1}
 				on:change={(e) => changeMargin(props, e.detail.value)}
 				id="margin"
 			/>
@@ -251,6 +252,9 @@
 	<div class="flex-column mt-1">
 		<!-- svelte-ignore a11y-label-has-associated-control -->
 		<label class="label">{@html $t('slider.text.textGradient')}</label>
-		<Gradient />
+		<Gradient
+			on:gradientChange={(value) => changeGradient(props, value.detail)}
+			on:reset={() => changeGradient(props, '')}
+		/>
 	</div>
 </div>

@@ -65,7 +65,11 @@ export function generateStyles(appearance: Record<string, string>): string {
             let key = replaces(entry[0]);
             let value = entry[1];
             if (value) {
-                stylesStringArr.push(`${key}: ${value};`)
+                stylesStringArr.push(`${key}: ${value};`);
+                if (entry[0] === 'gradient') {
+                    stylesStringArr.push('-webkit-background-clip: text;')
+                    stylesStringArr.push('-webkit-text-fill-color: transparent;')
+                }
             }
         });
 
@@ -79,7 +83,8 @@ export function replaces(value: string): string {
         .set("lineHeight", "line-height")
         .set("letterSpacing", "letter-spacing")
         .set("alignment", "text-align")
-        .set("textIndent", "text-indent");
+        .set("textIndent", "text-indent")
+        .set("gradient", "background");
     if (values.has(value)) {
         return values.get(value)!;
     } else {
@@ -112,7 +117,7 @@ export function changeWheight(props: Editor.TextElementProps, value: string): vo
     setElementProps({ ...props });
 }
 
-export function changeLineHeight(props: Editor.TextElementProps,  value: string): void {
+export function changeLineHeight(props: Editor.TextElementProps, value: string): void {
     props.appearance.lineHeight = `${value}px`;
     setElementProps({ ...props });
 }
@@ -134,6 +139,12 @@ export function changeMargin(props: Editor.TextElementProps, value: string): voi
 
 export function changeAlign(props: Editor.TextElementProps, value: string): void {
     props.appearance.alignment = value;
+    setElementProps({ ...props });
+}
+
+
+export function changeGradient(props: Editor.TextElementProps, value: string): void {
+    props.appearance.gradient = value;
     setElementProps({ ...props });
 }
 
