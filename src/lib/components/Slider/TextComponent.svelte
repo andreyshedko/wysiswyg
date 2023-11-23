@@ -21,12 +21,13 @@
 	import Range from '../Range/Range.svelte';
 	import Gradient from '../Gradient/Gradient.svelte';
 
-	export let props: Editor.TextElementProps;
+	export let props: Editor.EnhancedTextComponent;
 	let prevText = props.text;
 
 	$: {
 		if (props.appearance.type === 'content' && prevText !== props.text) {
-			document.getElementById('textarea')!.innerHTML = props.text;
+			const doc = document.getElementById('textarea');
+			doc!.innerHTML = props.text;
 		}
 	}
 
@@ -37,7 +38,7 @@
 		node.innerText = selection!;
 		range?.deleteContents();
 		range?.insertNode(node);
-		changeText(props, document.getElementById('textarea')?.innerHTML!);
+		changeText(props.id, props, document.getElementById('textarea')?.innerHTML!);
 	}
 
 	function applyItalicToSelection(): void {
@@ -47,7 +48,7 @@
 		node.innerText = selection!;
 		range?.deleteContents();
 		range?.insertNode(node);
-		changeText(props, document.getElementById('textarea')?.innerHTML!);
+		changeText(props.id, props, document.getElementById('textarea')?.innerHTML!);
 	}
 
 	function applyUnderlineToSelection(): void {
@@ -57,7 +58,7 @@
 		node.innerText = selection!;
 		range?.deleteContents();
 		range?.insertNode(node);
-		changeText(props, document.getElementById('textarea')?.innerHTML!);
+		changeText(props.id, props, document.getElementById('textarea')?.innerHTML!);
 	}
 
 	function showContextMenu(event: MouseEvent): void {
@@ -77,7 +78,7 @@
 		<Select
 			selectedValue={props.appearance.type || 'header'}
 			items={textTypes}
-			on:change={(ev) => changeAppearance(props, ev.detail)}
+			on:change={(ev) => changeAppearance(props.id, props, ev.detail)}
 		/>
 	</div>
 	<label class="label" for="type">{@html $t('slider.text')}</label>
@@ -88,7 +89,7 @@
 					type="text"
 					bind:value={props.text}
 					class="input"
-					on:input={(ev) => changeText(props, ev.target.value)}
+					on:input={(ev) => changeText(props.id, props, ev.target.value)}
 				/>
 			</div>
 		{:else}
@@ -101,7 +102,7 @@
 					aria-roledescription="text"
 					id="textarea"
 					class="textarea"
-					on:input={(ev) => changeText(props, ev.target.innerHTML)}
+					on:input={(ev) => changeText(props.id, props, ev.target.innerHTML)}
 					on:contextmenu={(ev) => showContextMenu(ev)}
 				>
 					{@html props.text}
@@ -117,7 +118,7 @@
 				id="colorpicker"
 				class="input"
 				bind:value={props.appearance.color}
-				on:change={(ev) => changeColor(props, ev.target.value)}
+				on:change={(ev) => changeColor(props.id, props, ev.target.value)}
 			/>
 		</div>
 	</div>
@@ -135,7 +136,7 @@
 				initialValue={1}
 				min={1}
 				value={transformCSSString('px', props.appearance.size) || 1}
-				on:change={(e) => changeSize(props, e.detail.value)}
+				on:change={(e) => changeSize(props.id, props, e.detail.value)}
 				id="size"
 			/>
 		</div>
@@ -155,7 +156,7 @@
 				min={100}
 				max={900}
 				value={+props.appearance.wheight || 100}
-				on:change={(e) => changeWheight(props, e.detail.value)}
+				on:change={(e) => changeWheight(props.id, props, e.detail.value)}
 				id="wheight"
 			/>
 		</div>
@@ -175,7 +176,7 @@
 				min={1}
 				max={100}
 				value={transformCSSString('px', props.appearance.lineHeight) || 1}
-				on:change={(e) => changeLineHeight(props, e.detail.value)}
+				on:change={(e) => changeLineHeight(props.id, props, e.detail.value)}
 				id="line-height"
 			/>
 		</div>
@@ -195,7 +196,7 @@
 				min={1}
 				max={100}
 				value={transformCSSString('px', props.appearance.letterSpacing) || 1}
-				on:change={(e) => changeLetterSpacing(props, e.detail.value)}
+				on:change={(e) => changeLetterSpacing(props.id, props, e.detail.value)}
 				id="letter-spacing"
 			/>
 		</div>
@@ -215,7 +216,7 @@
 				min={1}
 				max={100}
 				value={transformCSSString('px', props.appearance.textIndent) || 1}
-				on:change={(e) => changeTextIndent(props, e.detail.value)}
+				on:change={(e) => changeTextIndent(props.id, props, e.detail.value)}
 				id="text-indent"
 			/>
 		</div>
@@ -235,7 +236,7 @@
 				min={1}
 				max={100}
 				value={transformCSSString('px', props.appearance.margin) || 1}
-				on:change={(e) => changeMargin(props, e.detail.value)}
+				on:change={(e) => changeMargin(props.id, props, e.detail.value)}
 				id="margin"
 			/>
 		</div>
@@ -246,15 +247,15 @@
 		<Select
 			selectedValue={props.appearance.alignment || ''}
 			items={alignTypes}
-			on:change={(ev) => changeAlign(props, ev.detail)}
+			on:change={(ev) => changeAlign(props.id, props, ev.detail)}
 		/>
 	</div>
 	<div class="flex-column mt-1">
 		<!-- svelte-ignore a11y-label-has-associated-control -->
 		<label class="label">{@html $t('slider.text.textGradient')}</label>
 		<Gradient
-			on:gradientChange={(value) => changeGradient(props, value.detail)}
-			on:reset={() => changeGradient(props, '')}
+			on:gradientChange={(value) => changeGradient(props.id, props, value.detail)}
+			on:reset={() => changeGradient(props.id, props, '')}
 		/>
 	</div>
 </div>

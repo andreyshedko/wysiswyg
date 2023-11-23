@@ -33,9 +33,9 @@
 		<span class="icon is-small">
 			<i class="fas fa-arrow-rotate-left" />
 		</span>
-        <span>Reset</span>
+        <span>{@html $t('slider.text.textGradient.reset')}</span>
 	</button>
-	<p class="help">{@html $t('slider.text.textGradient.colorBegin')}</p>
+	<p class="help">{@html $t('slider.text.textGradient.color')}</p>
 	<div class="control">
 		<input
 			id="color"

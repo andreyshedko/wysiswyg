@@ -3,6 +3,7 @@ import type { ComponentType } from 'svelte';
 import Text from './components/Content/Text.svelte';
 import TextComponent from './components/Slider/TextComponent.svelte';
 import { setElementProps } from './stores/selected-element.store.ts';
+import { setSelectedId } from './stores/selected-id.store.ts';
 
 export const initEditor = (value: HTMLElement, _document: Document) => {
     if (_document) {
@@ -47,14 +48,13 @@ export const insertElement = (element: Editor.ElementType): void => {
     if (browser) {
         const _element = elementsMap.get(element);
         start = document.getElementById('start');
-        const props = defaultPropsMap.get(element);
-        new _element!({ target: start, props: { "props": props } });
+        let defaults = defaultPropsMap.get(element);
+        const id = crypto.randomUUID();
+        defaults = {...defaults, id};
+        setElementProps({ ...defaults, id }!);
+        setSelectedId(id);
+        new _element!({ target: start, props: { "props": defaults } });
     }
-}
-
-export const setDefaultProps = (element: Editor.ElementType): void => {
-    const props = defaultPropsMap.get(element);
-    setElementProps(props!);
 }
 
 export function generateStyles(appearance: Record<string, string>): string {
@@ -92,58 +92,58 @@ export function replaces(value: string): string {
     }
 }
 
-export function changeText(props: Editor.TextElementProps, value: string): void {
+export function changeText(id: string, props: Editor.TextElementProps, value: string): void {
     props.text = value;
     setElementProps({ ...props });
 }
 
-export function changeColor(props: Editor.TextElementProps, value: string): void {
+export function changeColor(id: string, props: Editor.TextElementProps, value: string): void {
     props.appearance.color = value;
     setElementProps({ ...props });
 }
 
-export function changeAppearance(props: Editor.TextElementProps, type: "header" | "content"): void {
+export function changeAppearance(id: string, props: Editor.TextElementProps, type: "header" | "content"): void {
     props.appearance.type = type;
     setElementProps({ ...props });
 }
 
-export function changeSize(props: Editor.TextElementProps, value: string): void {
+export function changeSize(id: string, props: Editor.TextElementProps, value: string): void {
     props.appearance.size = `${value}px`;
     setElementProps({ ...props });
 }
 
-export function changeWheight(props: Editor.TextElementProps, value: string): void {
+export function changeWheight(id: string, props: Editor.TextElementProps, value: string): void {
     props.appearance.wheight = value;
     setElementProps({ ...props });
 }
 
-export function changeLineHeight(props: Editor.TextElementProps, value: string): void {
+export function changeLineHeight(id: string, props: Editor.TextElementProps, value: string): void {
     props.appearance.lineHeight = `${value}px`;
     setElementProps({ ...props });
 }
 
-export function changeLetterSpacing(props: Editor.TextElementProps, value: string): void {
+export function changeLetterSpacing(id: string, props: Editor.TextElementProps, value: string): void {
     props.appearance.letterSpacing = `${value}px`;
     setElementProps({ ...props });
 }
 
-export function changeTextIndent(props: Editor.TextElementProps, value: string): void {
+export function changeTextIndent(id: string, props: Editor.TextElementProps, value: string): void {
     props.appearance.textIndent = `${value}px`;
     setElementProps({ ...props });
 }
 
-export function changeMargin(props: Editor.TextElementProps, value: string): void {
+export function changeMargin(id: string, props: Editor.TextElementProps, value: string): void {
     props.appearance.margin = `${value}px`;
     setElementProps({ ...props });
 }
 
-export function changeAlign(props: Editor.TextElementProps, value: string): void {
+export function changeAlign(id: string, props: Editor.TextElementProps, value: string): void {
     props.appearance.alignment = value;
     setElementProps({ ...props });
 }
 
 
-export function changeGradient(props: Editor.TextElementProps, value: string): void {
+export function changeGradient(id: string, props: Editor.TextElementProps, value: string): void {
     props.appearance.gradient = value;
     setElementProps({ ...props });
 }

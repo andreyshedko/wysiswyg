@@ -5,7 +5,7 @@ import type { ComponentType } from "svelte";
 // for information about these interfaces
 declare global {
 	module Editor {
-		type Color = {r: number, g: number, b: number, a: number};
+		type Color = { r: number, g: number, b: number, a: number };
 		type ElementType = 'text'
 			| 'image'
 			| 'video'
@@ -44,6 +44,8 @@ declare global {
 				shadow: string;
 			}
 		}
+
+		type EnhancedTextComponent = { id: string } & Editor.TextElementProps;
 	}
 }
 

@@ -2,7 +2,6 @@
 	import { createEventDispatcher } from 'svelte';
   import './Toggle.scss';
 	export let checked = false;
-	export let color = '#2196F3';
 	export let textTrue = '';
 	export let textFalse = '';
 

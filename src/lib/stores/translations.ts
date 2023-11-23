@@ -29,8 +29,8 @@ export const translations =  {
         "slider.text.margin": "Margin",
         "slider.text.textAlign": "Text Align",
         "slider.text.textGradient": "Text Gradient",
-        "slider.text.textGradient.colorBegin": "Gradient Color From",
-        "slider.text.textGradient.colorTo": "Gradient Color To",
+        "slider.text.textGradient.reset": "Reset",
+        "slider.text.textGradient.color": "Gradient Color",
         "slider.text.textGradient.gradientDirection": "Gradient Direction"
     },
     "cz": {
@@ -63,8 +63,8 @@ export const translations =  {
         "slider.text.margin": "Margin",
         "slider.text.textAlign": "Zarovnání textu",
         "slider.text.textGradient": "Gradient textu",
-        "slider.text.textGradient.colorBegin": "Gradientní barva od",
-        "slider.text.textGradient.colorTo": "Gradientní barva do",
+        "slider.text.textGradient.reset": "Obnovit",
+        "slider.text.textGradient.color": "Gradientní barva",
         "slider.text.textGradient.gradientDirection": "Směr gradientu"
     },
 };

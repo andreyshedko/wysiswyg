@@ -1,11 +1,10 @@
 <script lang="ts">
 	import { t } from '$lib/stores/language-store.ts';
 	import { setSelectedElement, toggleSlider } from '$lib/stores/slider-store.ts';
-	import { insertElement, setDefaultProps } from '$lib/utils.ts';
+	import { insertElement } from '$lib/utils.ts';
 
 	function addElement(element: Editor.ElementType): void {
 		setSelectedElement(element);
-		setDefaultProps(element);
 		insertElement(element);
 		toggleSlider(true);
 	}
