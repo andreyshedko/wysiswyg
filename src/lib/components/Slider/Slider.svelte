@@ -5,13 +5,13 @@
 	import './slider.scss';
 
 	import SliderBuilder from './SliderBuilder.svelte';
-	import { derivedProps } from '$lib/stores/selected-element.store.ts';
+	import { derivedProps as store } from '$lib/stores/selected-element.store.ts';
 
 	let state: Editor.SliderState;
 	let name: string;
-	let _props: Record<string, unknown>;
+	let props: Record<string, unknown>;
 
-	const unsubscribeProps = derivedProps.subscribe(props => _props = props!);
+	const unsubscribeProps = store.subscribe((value) => (props = value));
 	const unsubscribeSlider = slider.subscribe((value) => (state = value));
 
 	let closeButton: HTMLElement;
@@ -46,7 +46,16 @@
 			</div>
 		</div>
 		<div class="slider-body">
-			<SliderBuilder type={state.type} props={_props} bind:name />
+			{#if props}
+				<SliderBuilder type={state.type} {props} bind:name />
+			{:else}
+				<div class="lds-ellipsis">
+					<div />
+					<div />
+					<div />
+					<div />
+				</div>
+			{/if}
 		</div>
 	</div>
 {/if}

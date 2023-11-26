@@ -5,6 +5,7 @@
 	export let name: string = 'Component';
 	export let props: Record<string, unknown>;
 	export let type: Editor.ElementType;
+	export let id: string;
 	let component: [string, ComponentType];
 
 	onMount(() => {
@@ -16,5 +17,5 @@
 </script>
 
 {#if component && component[1]}
-	<svelte:component this={component[1]} props={props} />
+	<svelte:component this={component[1]} props={props} id={id} />
 {/if}
