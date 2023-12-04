@@ -96,7 +96,7 @@ export function changeText(props: Editor.TextElementProps, value: string): void 
 }
 
 export function changeColor(props: Editor.TextElementProps, value: string): void {
-    props.appearance.color = value;
+    props.appearance = {...props, ...props.appearance, color: value};
     setElementProps({ ...props });
 }
 

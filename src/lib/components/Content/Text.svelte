@@ -8,10 +8,9 @@
 	let styles: string;
 	let props: Editor.TextElementProps;
 
-	derived([_props], ([$props]) => $props.get(id)).subscribe((value) => {
+	derived([_props], ([$props]) => $props?.get(id)).subscribe((value) => {
 		if (value) {
 			props = value;
-			console.log(value)
 			styles = generateStyles(props.appearance);
 		}
 	});
