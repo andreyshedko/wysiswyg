@@ -1,0 +1,14 @@
+.toolbar {
+    position: absolute;
+
+    .is-smallest {
+        background-color: transparent;
+        font-size: 0.45rem !important;
+        margin-top: 0.1rem;
+        margin-left: 0.1rem;
+
+        >span>i {
+            opacity: 0.5;
+        }
+    }
+}

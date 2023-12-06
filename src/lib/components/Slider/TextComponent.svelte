@@ -120,7 +120,7 @@
 				id="colorpicker"
 				class="input"
 				bind:value={props.appearance.color}
-				on:change={(ev) => changeColor(props, ev.target.value)}
+				on:input={(ev) => changeColor(props, ev.target.value)}
 			/>
 		</div>
 	</div>
@@ -157,7 +157,7 @@
 				initialValue={100}
 				min={100}
 				max={900}
-				value={+props?.appearance.wheight || 100}
+				value={+props?.appearance?.wheight || 100}
 				on:change={(e) => changeWheight(props, e.detail.value)}
 				id="wheight"
 			/>

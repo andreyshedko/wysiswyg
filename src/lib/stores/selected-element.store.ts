@@ -9,7 +9,6 @@ export const setSelectedId = (id: string) => _id.set(id);
 
 export const setElementProps = (content: Record<string, unknown>) => {
     const id = get(_id);
-    let updated: Map<string, Record<string, unknown>>;
     if (id) {
         _props.update(p => p.set(id, content));
     }

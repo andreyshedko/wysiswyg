@@ -34,7 +34,8 @@ const defaultPropsMap = new Map<Editor.ElementType, Record<string, unknown>>()
         'text': "This is Text component",
         'appearance': {
             'type': 'header',
-            'color': '#f91010'
+            'color': '#f91010',
+            'padding': '10px'
         }
     });
 

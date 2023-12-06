@@ -32,16 +32,17 @@ declare global {
 			appearance: {
 				type: 'header' | 'content';
 				color: string;
-				size: string;
-				wheight: string;
-				lineHeight: string;
-				letterSpacing: string;
-				textIndent: string;
-				margin: string;
-				alignment: string;
-				gradient: string;
-				width: string;
-				shadow: string;
+				size?: string;
+				wheight?: string;
+				lineHeight?: string;
+				letterSpacing?: string;
+				textIndent?: string;
+				margin?: string;
+				padding?: string;
+				alignment?: string;
+				gradient?: string;
+				width?: string;
+				shadow?: string;
 			}
 		}
 
