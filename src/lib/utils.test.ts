@@ -12,7 +12,7 @@ test('replaces', () => {
 });
 
 test('change props', () => {
-    const props: Editor.TextElementProps = {text: "a", appearance: {color: "#fff", type: "header" }};
+    const props: Editor.TextElementProps = {text: "a", appearance: {color: "#fff", type: "header", padding: "10px" }};
     changeText(props, "b")
     expect(props.text).toBe("b");
     changeColor(props, "#333");

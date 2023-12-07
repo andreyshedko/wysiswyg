@@ -29,33 +29,32 @@
 	function deleteItem() {}
 </script>
 
-
 {#if selected}
-<div aria-roledescription="toolbar" role="toolbar" class="toolbar">
-	<div class="is-flex is-flex-direction-row is-justify-content-flex-end">
-		<button class="button is-smallest" on:click={() => toggleSlider(true)}>
-			<span class="icon is-small">
-				<i class="fa fa-file-pen" />
-			</span>
-		</button>
-		<button class="button is-smallest" on:click={deleteItem}>
-			<span class="icon is-small">
-				<i class="fa fa-trash" />
-			</span>
-		</button>
+	<div aria-roledescription="toolbar" role="toolbar" class="toolbar">
+		<div class="is-flex is-flex-direction-row is-justify-content-flex-end">
+			<button class="button is-smallest" on:click={() => toggleSlider(true)}>
+				<span class="icon is-small">
+					<i class="fa fa-file-pen" />
+				</span>
+			</button>
+			<button class="button is-smallest" on:click={deleteItem}>
+				<span class="icon is-small">
+					<i class="fa fa-trash" />
+				</span>
+			</button>
+		</div>
 	</div>
-</div>
 {/if}
-<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
-<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-<!-- svelte-ignore a11y-click-events-have-key-events -->
 {#if props?.appearance?.type === 'header'}
+	<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+	<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 	<h1
 		aria-roledescription="header"
 		data-type="text"
 		data-id={id}
 		tabindex="0"
 		on:click={(e) => selectElement(e)}
+		on:keydown={(e) => selectElement(e)}
 		draggable="true"
 		class:selected={selected}
 		style={styles}
@@ -63,6 +62,7 @@
 		{props?.text ?? 'This is an H1 text element'}
 	</h1>
 {:else}
+	<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 	<!-- svelte-ignore a11y-no-static-element-interactions -->
 	<div
 		aria-roledescription="content"
@@ -70,6 +70,7 @@
 		data-id={id}
 		tabindex="0"
 		on:click={(e) => selectElement(e)}
+		on:keydown={(e) => selectElement(e)}
 		draggable="true"
 		style={styles}
 		class:selected={selected}

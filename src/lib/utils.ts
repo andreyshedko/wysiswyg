@@ -92,58 +92,58 @@ export function replaces(value: string): string {
 }
 
 export function changeText(props: Editor.TextElementProps, value: string): void {
-    props.text = value;
+    props = {...props, text: value};
     setElementProps({ ...props });
 }
 
-export function changeColor(props: Editor.TextElementProps, value: string): void {
-    props.appearance = { ...props, ...props.appearance, color: value };
+export function changeColor(props: Editor.TextElementProps, color: string): void {
+    props.appearance = { ...props.appearance,  color };
     setElementProps({ ...props });
 }
 
 export function changeAppearance(props: Editor.TextElementProps, type: "header" | "content"): void {
-    props.appearance = { ...props, ...props.appearance, type };
+    props.appearance = { ...props.appearance, type };
     setElementProps({ ...props });
 }
 
 export function changeSize(props: Editor.TextElementProps, value: string): void {
-    props.appearance = { ...props, ...props.appearance, size: `${value}px` };
+    props.appearance = { ...props.appearance, size: `${value}px` };
     setElementProps({ ...props });
 }
 
-export function changeWheight(props: Editor.TextElementProps, value: string): void {
-    props.appearance = { ...props, ...props.appearance, wheight: value };
+export function changeWheight(props: Editor.TextElementProps, wheight: string): void {
+    props.appearance = { ...props.appearance, wheight };
     setElementProps({ ...props });
 }
 
 export function changeLineHeight(props: Editor.TextElementProps, value: string): void {
-    props.appearance = { ...props, ...props.appearance, lineHeight: `${value}px` };
+    props.appearance = { ...props.appearance, lineHeight: `${value}px` };
     setElementProps({ ...props });
 }
 
 export function changeLetterSpacing(props: Editor.TextElementProps, value: string): void {
-    props.appearance = { ...props, ...props.appearance, letterSpacing: `${value}px` };
+    props.appearance = { ...props.appearance, letterSpacing: `${value}px` };
     setElementProps({ ...props });
 }
 
 export function changeTextIndent(props: Editor.TextElementProps, value: string): void {
-    props.appearance = { ...props, ...props.appearance, textIndent: `${value}px` };
+    props.appearance = { ...props.appearance, textIndent: `${value}px` };
     setElementProps({ ...props });
 }
 
 export function changeMargin(props: Editor.TextElementProps, value: string): void {
-    props.appearance = { ...props, ...props.appearance, margin: `${value}px` };
+    props.appearance = { ...props.appearance, margin: `${value}px` };
     setElementProps({ ...props });
 }
 
-export function changeAlign(props: Editor.TextElementProps, value: string): void {
-    props.appearance = { ...props, ...props.appearance, alignment: value };
+export function changeAlign(props: Editor.TextElementProps, alignment: string): void {
+    props.appearance = { ...props.appearance, alignment };
     setElementProps({ ...props });
 }
 
 
-export function changeGradient(props: Editor.TextElementProps, value: string): void {
-    props.appearance = { ...props, ...props.appearance, gradient: value };
+export function changeGradient(props: Editor.TextElementProps, gradient: string): void {
+    props.appearance = { ...props.appearance, gradient };
     setElementProps({ ...props });
 }
 
