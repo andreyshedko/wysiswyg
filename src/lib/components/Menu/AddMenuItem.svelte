@@ -6,7 +6,6 @@
 	function addElement(element: Editor.ElementType): void {
 		setSelectedElement(element);
 		insertElement(element);
-		toggleSlider(true);
 	}
 </script>
 

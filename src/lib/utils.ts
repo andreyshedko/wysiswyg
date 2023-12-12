@@ -3,10 +3,11 @@ import type { ComponentType } from 'svelte';
 import Text from './components/Content/Text.svelte';
 import TextComponent from './components/Slider/TextComponent.svelte';
 import { setElementProps, setSelectedId } from './stores/selected-element.store.ts';
+import Wrapper from './components/Wrapper.svelte';
 
 export const initEditor = (value: HTMLElement, _document: Document) => {
     if (_document) {
-        const start = _document.getElementById('start');
+        const start = _document.getElementById('editor');
         start?.append(value);
     }
 }
@@ -23,7 +24,7 @@ export const alignTypes = [
     { key: "justify", value: "Justify" },
 ];
 
-const elementsMap = new Map<Editor.ElementType, any>()
+const elementsMap = new Map<Editor.ElementType, unknown>()
     .set('text', Text);
 
 const sliderElementsMap = new Map<Editor.ElementType, [string, ComponentType]>()
@@ -43,16 +44,20 @@ export const getSliderComponent = (component: Editor.ElementType) => {
     return sliderElementsMap.get(component)
 }
 
+export const children = (element: Editor.ElementType): {_element: any, defaults: Record<string, unknown>} => {
+    const _element = elementsMap.get(element);
+    let defaults = defaultPropsMap.get(element);
+    return { _element, defaults}
+}
+
 export const insertElement = (element: Editor.ElementType): void => {
-    let start: HTMLElement | null;
-    if (browser) {
-        const _element = elementsMap.get(element);
-        start = document.getElementById('start');
-        let defaults = defaultPropsMap.get(element);
+    let start: Element | null;
+    if (browser) {    
+        start = document.getElementById('editor') as Element;
         const id = crypto.randomUUID();
         setSelectedId(id);
-        setElementProps({ ...defaults }!);
-        new _element!({ target: start, props: { "props": { ...defaults }, "id": id } });
+        const _children = children(element);
+        new Wrapper({ target: start, props: { id, children: _children  } });
     }
 }
 

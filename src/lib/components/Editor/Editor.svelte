@@ -8,31 +8,31 @@
 	export let locale = 'en';
 	setLocale(locale);
 
-	export function dragstart (ev: { dataTransfer: { setData: (arg0: string, arg1: any) => void; }; }, item: any) {
-		ev.dataTransfer.setData("item", item);
-	}
+	const dragstart = (ev: DragEvent & { target: EventTarget & HTMLDivElement }): void => {
+		ev.dataTransfer?.setData('text/plain', ev.target.id);
+	};
 
-	export function dragover (ev: DragEvent & { currentTarget: EventTarget & HTMLDivElement; }) {
+	const dragover = (ev: DragEvent & { currentTarget: EventTarget & HTMLDivElement }): void => {
 		ev.preventDefault();
 		ev.dataTransfer!.dropEffect = 'move';
-	}
+	};
 
-	export function drop (ev: DragEvent & { currentTarget: EventTarget & HTMLDivElement; }) {
+	const drop = (ev: DragEvent & { target: EventTarget & HTMLDivElement }): void => {
 		ev.preventDefault();
-		var i = ev.dataTransfer?.getData("item");
-	}
-
+		const data = ev.dataTransfer?.getData('text/plain');
+		document.getElementById('editor')?.appendChild(document.getElementById(data!)!);
+	};
 </script>
 
 <Menu />
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <div
 	aria-dropeffect="move"
-	contenteditable="true" 
-	class="editor" 
-	on:drop={event => drop(event)}
-	on:dragover={event => dragover(event)}
->
-	<div id="start" />
-</div>
+	contenteditable="true"
+	class="editor"
+	id="editor"
+	on:dragstart={(event) => dragstart(event)}
+	on:drop={(event) => drop(event)}
+	on:dragover={(event) => dragover(event)}
+/>
 <Slider />

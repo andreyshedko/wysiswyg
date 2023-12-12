@@ -1,23 +1,13 @@
 .editor {
     resize: both;
     overflow: auto;
-    box-shadow: inset 1px 1px 1px rgba(0, 0, 0, .1), 1px 1px 1px rgba(0, 0, 0, .1);
     min-width: 100vw;
     min-height: 100vh;
-    display: grid;
-    place-items: center;
+    display: flex;
+    flex-direction: column;
     outline: initial;
-    position: fixed;
-    top: 0;
 
     & :focus-visible {
         outline: initial;
-    }
-
-    #start {
-        > .selected {
-            cursor: move;
-            box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.02), 0px 0px 0px 1px rgba(27, 31, 35, 0.15);
-        }
     }
 }
