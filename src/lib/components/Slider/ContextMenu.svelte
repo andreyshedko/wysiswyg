@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { createEventDispatcher, onMount } from 'svelte';
+	import './ContextMenu.scss';
 
 	export let event: MouseEvent;
 
@@ -81,7 +82,7 @@
 		<p class="buttons">
 			{#each menuItems as item}
 				<button class="button" on:click={item.onClick}>
-					<span class="icon is-small">
+					<span class="icon is-smallest">
 						<i class={item.class} />
 					</span>
 				</button>

@@ -24,14 +24,14 @@
 	export let props: Editor.TextElementProps;
 	let prevText = props?.text;
 
-	$: {
-		if (props?.appearance.type === 'content' && prevText !== props?.text) {
-			const doc = document.getElementById('textarea');
-			if (doc) {
-				doc.innerHTML = props.text;
-			}
-		}
-	}
+	// $: {
+	// 	if (props?.appearance.type === 'content' && prevText !== props?.text) {
+	// 		const doc = document.getElementById('textarea');
+	// 		if (doc) {
+	// 			doc.innerHTML = props.text;
+	// 		}
+	// 	}
+	// }
 
 	function applyBoldToSelection(): void {
 		let selection = window.getSelection()?.toString();

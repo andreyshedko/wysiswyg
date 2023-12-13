@@ -12,7 +12,7 @@
 		ev.dataTransfer?.setData('text/plain', ev.target.id);
 	};
 
-	const dragover = (ev: DragEvent & { currentTarget: EventTarget & HTMLDivElement }): void => {
+	const dragover = (ev: DragEvent & { target: EventTarget & HTMLDivElement }): void => {
 		ev.preventDefault();
 		ev.dataTransfer!.dropEffect = 'move';
 	};
