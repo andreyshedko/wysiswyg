@@ -24,14 +24,14 @@
 	export let props: Editor.TextElementProps;
 	let prevText = props?.text;
 
-	// $: {
-	// 	if (props?.appearance.type === 'content' && prevText !== props?.text) {
-	// 		const doc = document.getElementById('textarea');
-	// 		if (doc) {
-	// 			doc.innerHTML = props.text;
-	// 		}
-	// 	}
-	// }
+	$: {
+		if (props?.appearance.type === 'content' && prevText !== props?.text) {
+			const doc = document.getElementById('textarea');
+			if (doc) {
+				doc.innerHTML = '';
+			}
+		}
+	}
 
 	function applyBoldToSelection(): void {
 		let selection = window.getSelection()?.toString();
@@ -40,7 +40,8 @@
 		node.innerText = selection!;
 		range?.deleteContents();
 		range?.insertNode(node);
-		changeText(props, document.getElementById('textarea')?.innerHTML!);
+		const text = document.getElementById('textarea')?.innerHTML!;
+		changeText(props, text);
 	}
 
 	function applyItalicToSelection(): void {

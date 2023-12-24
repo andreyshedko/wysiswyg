@@ -11,7 +11,12 @@
 	const dispatch = createEventDispatcher();
 
 	function rightClickContextMenu(e: { clientX: any; clientY: any }) {
-		showMenu = true;
+		if (document.getElementById("context")) {
+			showMenu = false
+		} else {
+			showMenu = true;
+		}
+
 		browser = {
 			w: window.innerWidth,
 			h: window.innerHeight
@@ -75,7 +80,8 @@
 </script>
 
 {#if showMenu}
-	<div
+	<div	
+		id="context"
 		use:getContextMenuDimension
 		style="position: absolute; top:{pos.y}px; left:{pos.x}px; z-index: 1"
 	>
