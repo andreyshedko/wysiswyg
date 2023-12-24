@@ -31,7 +31,9 @@ export const translations =  {
         "slider.text.textGradient": "Text Gradient",
         "slider.text.textGradient.reset": "Reset",
         "slider.text.textGradient.color": "Gradient Color",
-        "slider.text.textGradient.gradientDirection": "Gradient Direction"
+        "slider.text.textGradient.gradientDirection": "Gradient Direction",
+        "warpper.toolbar.edit": "Edit",
+        "warpper.toolbar.delete": "Delete"
     },
     "cz": {
         "menu.file": "Soubor",
@@ -65,6 +67,8 @@ export const translations =  {
         "slider.text.textGradient": "Gradient textu",
         "slider.text.textGradient.reset": "Obnovit",
         "slider.text.textGradient.color": "Gradientní barva",
-        "slider.text.textGradient.gradientDirection": "Směr gradientu"
+        "slider.text.textGradient.gradientDirection": "Směr gradientu",
+        "warpper.toolbar.edit": "Upravit",
+        "warpper.toolbar.delete": "Smazat"
     },
 };
