@@ -13,7 +13,6 @@
 	export let id: string;
 	export let children: { _element: any; defaults: Record<string, unknown> };
 	let selected: boolean = false;
-	let active: boolean = true;
 	let edit = $t('warpper.toolbar.edit');
 	let del = $t('warpper.toolbar.delete');
 	const { _element, defaults } = children;
@@ -40,15 +39,16 @@
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+<!-- svelte-ignore a11y-mouse-events-have-key-events -->
 <div
 	{id}
 	role="group"
 	aria-roledescription="wrapper"
 	on:click={() => setSelectedId(id)}
-	class:selected={active}
+	class:selected={selected}
 	draggable="true"
 >
-	{#if active}
+	{#if selected}
 		<div aria-roledescription="toolbar" role="toolbar" class="toolbar">
 			<div class="is-flex is-flex-direction-row is-justify-content-flex-end">
 				<button class="button is-smallest" on:click={() => toggleSlider(true)} title={edit}>

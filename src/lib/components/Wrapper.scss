@@ -1,18 +1,23 @@
 .selected {
     cursor: move;
-    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.02), 0px 0px 0px 1px rgba(27, 31, 35, 0.15);
+    box-shadow: 0px 1px 3px 0px rgba(143, 37, 37, 0.02), 0px 0px 0px 1px rgba(40, 109, 179, 0.15);
+    position: relative;
 
     .toolbar {
         position: absolute;
-    
-        .is-smallest {
+        top: 0.5rem;
+        right: 1rem;
+
+        .button {
             background-color: transparent;
             font-size: 0.4rem !important;
             margin-top: 0.1rem;
             margin-left: 0.1rem;
-    
+            border-color: lighten(#111, 40%);
+            border-style: dotted;
+
             >span>i {
-                opacity: 0.3;
+                color: #111;
             }
         }
     }
