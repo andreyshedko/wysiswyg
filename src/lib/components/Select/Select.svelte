@@ -2,6 +2,9 @@
 	export let items: { key: string; value: string }[] = [{ key: '', value: '' }];
 	export let selectedValue = '';
 	import { createEventDispatcher } from 'svelte';
+	import { t } from '$lib/stores/language-store.ts';
+
+	export let id: string;
 
 	const dispatch = createEventDispatcher();
 
@@ -11,10 +14,14 @@
 </script>
 
 <div class="select">
-	<select bind:value={selectedValue} on:change={(event) => setSelect(event.currentTarget.value)}>
+	<select 
+		id={id} 
+		bind:value={selectedValue} 
+		on:change={(event) => setSelect(event.currentTarget.value)}
+	>
 		{#each items as item}
 			<option value={item.key}>
-				{item.value}
+				{@html $t(item.value) }
 			</option>
 		{/each}
 	</select>

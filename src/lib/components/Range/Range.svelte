@@ -6,7 +6,7 @@
 	export let min = 0;
 	export let max = 100;
 	export let initialValue = 0;
-	export let id;
+	export let id: string;
 	export let value = typeof initialValue === 'string' ? parseInt(initialValue) : initialValue;
 
 	let container: HTMLDivElement;
@@ -166,7 +166,7 @@
 	on:mouseup={onDragEnd}
 	on:resize={resizeWindow}
 />
-<div class="range">
+<div class="range" id={id}>
 	<div
 		class="range__wrapper"
 		tabindex="0"
@@ -176,7 +176,6 @@
 		aria-valuemin={min}
 		aria-valuemax={max}
 		aria-valuenow={value}
-		{id}
 		on:mousedown={onTrackEvent}
 		on:touchstart={onTrackEvent}
 	>

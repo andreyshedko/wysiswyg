@@ -5,7 +5,7 @@
 	import './Editor.scss';
 	import { setLocale } from '$lib/stores/language-store.ts';
 
-	export let locale = 'en';
+	export let locale = 'cz';
 	setLocale(locale);
 
 	const dragstart = (ev: DragEvent & { target: EventTarget & HTMLDivElement }): void => {

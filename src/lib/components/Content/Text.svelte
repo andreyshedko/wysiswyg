@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { t } from '$lib/stores/language-store.ts';
 	import { _id, _props } from '$lib/stores/selected-element.store.ts';
 	import { generateStyles } from '$lib/utils.ts';
 	import { derived } from 'svelte/store';
@@ -26,7 +27,7 @@
 		tabindex="0"
 		style={styles}
 	>
-		{props?.text ?? 'This is an H1 text element'}
+		{props?.text ?? $t('utils.defaulttext.h1')}
 	</h1>
 {:else}
 	<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
@@ -38,6 +39,6 @@
 		tabindex="0"
 		style={styles}
 	>
-		{@html props?.text ?? 'This is an DIV text element'}
+		{@html props?.text ?? $t('utils.defaulttext.div')}
 	</div>
 {/if}

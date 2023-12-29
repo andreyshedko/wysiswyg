@@ -13,15 +13,20 @@ export const initEditor = (value: HTMLElement, _document: Document) => {
 }
 
 export const textTypes = [
-    { key: "header", value: "Header" },
-    { key: "content", value: "Content" }
+    { key: "header", value: "utils.types.header" },
+    { key: "content", value: "utils.types.content" }
+];
+
+export const layoutTypes = [
+    { key: "column", value: "utils.types.column" },
+    { key: "grid", value: "utils.types.grid" }
 ];
 
 export const alignTypes = [
-    { key: "auto", value: "Auto" },
-    { key: "right", value: "Right" },
-    { key: "center", value: "Center" },
-    { key: "justify", value: "Justify" },
+    { key: "auto", value: "utils.types.auto" },
+    { key: "right", value: "utils.types.right" },
+    { key: "center", value: "utils.types.center" },
+    { key: "justify", value: "utils.types.justify" },
 ];
 
 const elementsMap = new Map<Editor.ElementType, unknown>()

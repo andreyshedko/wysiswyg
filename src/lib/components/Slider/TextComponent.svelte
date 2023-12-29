@@ -77,8 +77,9 @@
 <div class="text-container">
 	<div class="flex-column mt-1">
 		<!-- svelte-ignore a11y-label-has-associated-control -->
-		<label class="label">{@html $t('slider.text.appearance')}</label>
+		<label class="label" for="appearance">{@html $t('slider.text.appearance')}</label>
 		<Select
+			id="appearance"
 			selectedValue={props?.appearance.type || 'header'}
 			items={textTypes}
 			on:change={(ev) => changeAppearance(props, ev.detail)}
@@ -246,8 +247,9 @@
 	</div>
 	<div class="flex-column mt-1">
 		<!-- svelte-ignore a11y-label-has-associated-control -->
-		<label class="label">{@html $t('slider.text.textAlign')}</label>
+		<label class="label" for="align">{@html $t('slider.text.textAlign')}</label>
 		<Select
+			id="align"
 			selectedValue={props?.appearance.alignment || ''}
 			items={alignTypes}
 			on:change={(ev) => changeAlign(props, ev.detail)}

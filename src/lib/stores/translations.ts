@@ -32,8 +32,19 @@ export const translations =  {
         "slider.text.textGradient.reset": "Reset",
         "slider.text.textGradient.color": "Gradient Color",
         "slider.text.textGradient.gradientDirection": "Gradient Direction",
+        "slider.layout": "Layout",
         "warpper.toolbar.edit": "Edit",
-        "warpper.toolbar.delete": "Delete"
+        "warpper.toolbar.delete": "Delete",
+        "utils.types.header": "Header",
+        "utils.types.content": "Content",
+        "utils.types.column": "Column",
+        "utils.types.grid": "Grid",
+        "utils.types.auto": "Auto",
+        "utils.types.right": "Right",
+        "utils.types.center": "Center",
+        "utils.types.justify": "Justify",
+        'utils.defaulttext.div': "This is content element (div)",
+        'utils.defaulttext.h1': "This is header element (h1)"
     },
     "cz": {
         "menu.file": "Soubor",
@@ -68,7 +79,18 @@ export const translations =  {
         "slider.text.textGradient.reset": "Obnovit",
         "slider.text.textGradient.color": "Gradientní barva",
         "slider.text.textGradient.gradientDirection": "Směr gradientu",
+        "slider.layout": "Rozložení",
         "warpper.toolbar.edit": "Upravit",
-        "warpper.toolbar.delete": "Smazat"
+        "warpper.toolbar.delete": "Smazat",
+        "utils.types.header": "Záhlaví",
+        "utils.types.content": "Obsah",
+        "utils.types.column": "Kolonka",
+        "utils.types.grid": "Tabulka",
+        "utils.types.auto": "Automatický",
+        "utils.types.right": "Vpravo",
+        "utils.types.center": "Centrum",
+        "utils.types.justify": "Ospravedlnit",
+        'utils.defaulttext.div': "Toto je prvek obsahu (div)",
+        'utils.defaulttext.h1': "Toto je prvek záhlaví (h1)"
     },
 };
