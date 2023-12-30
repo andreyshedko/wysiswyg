@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap');
 @import "../../node_modules/bulma/css/bulma.min.css";
-@import "../../node_modules/@fortawesome/fontawesome-free/css/all.min.css";
+@import "../../node_modules/css.gg/icons/icons.css";
 
 :root {
     font-size: calc(15px + 0.390625vw);
@@ -64,10 +64,6 @@ input[type=text] {
 
 .mt-1 {
     margin-top: 1rem;
-}
-
-:active ::after {
-    box-shadow: 0 2px 1px -2px red;
 }
 
 select {

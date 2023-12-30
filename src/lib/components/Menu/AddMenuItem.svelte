@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { t } from '$lib/stores/language-store.ts';
-	import { setSelectedElement, toggleSlider } from '$lib/stores/slider-store.ts';
+	import { setSelectedElement } from '$lib/stores/slider-store.ts';
 	import { insertElement } from '$lib/utils.ts';
 
 	function addElement(element: Editor.ElementType): void {
@@ -10,73 +10,84 @@
 </script>
 
 <div class="dropdown">
-	<i class="fa fa-plus"></i>
+	<i class="gg-math-plus" />
 	<div class="dropdown-content position">
 		<div
 			role="menuitem"
 			tabindex="0"
 			aria-roledescription="menuitem"
-			class="menu-item"
+			class="menu-item is-flex is-flex-direction-row is-flex-wrap-wrap is-align-items-center"
+			on:click={() => addElement('layout')}
+			on:keydown={() => addElement('layout')}
+		>
+			<i class="gg-view-cols mx-1"></i>
+			<span>{@html $t('slider.layout')}</span>
+		</div>
+		<div
+			role="menuitem"
+			tabindex="0"
+			aria-roledescription="menuitem"
+			class="menu-item is-flex is-flex-direction-row is-flex-wrap-wrap is-align-items-center"
 			on:click={() => addElement('text')}
 			on:keydown={() => addElement('text')}
 		>
-			<i class="fa fa-font"></i>
-			{@html $t('menu.add.text')}
+			<i class="gg-format-text mx-1" />
+			<span>{@html $t('menu.add.text')}</span>
 		</div>
 		<div
-			class="menu-item"
+			class="menu-item is-flex is-flex-direction-row is-flex-wrap-wrap is-align-items-center"
 			role="menuitem"
 			aria-roledescription="menuitem"
 			tabindex="0"
 			on:click={() => addElement('image')}
 			on:keydown={() => addElement('image')}
 		>
-			<i class="fa fa-image"></i>
-			{@html $t('menu.add.image')}
+			<i class="gg-image mx-1" />
+			<span>{@html $t('menu.add.image')}</span>
 		</div>
 		<div
-			class="menu-item"
+			class="menu-item is-flex is-flex-direction-row is-flex-wrap-wrap is-align-items-center"
 			role="menuitem"
 			tabindex="0"
 			aria-roledescription="menuitem"
 			on:click={() => addElement('video')}
 			on:keydown={() => addElement('video')}
 		>
-			<i class="fa fa-video"></i>
-			{@html $t('menu.add.video')}
+			<i class="gg-film mx-1" />
+			<span>{@html $t('menu.add.video')}</span>
 		</div>
 		<div
-			class="menu-item"
+			class="menu-item is-flex is-flex-direction-row is-flex-wrap-wrap is-align-items-center"
 			role="menuitem"
 			tabindex="0"
 			aria-roledescription="menuitem"
 			on:click={() => addElement('audio')}
 			on:keydown={() => addElement('audio')}
 		>
-			<i class="fa fa-file-audio"></i>
-			{@html $t('menu.add.audio')}
+			<i class="gg-music mx-1" />
+			<span>{@html $t('menu.add.audio')}</span>
 		</div>
 		<div
-			class="menu-item"
+			class="menu-item is-flex is-flex-direction-row is-flex-wrap-wrap is-align-items-center"
 			role="menuitem"
 			tabindex="0"
 			aria-roledescription="menuitem"
 			on:click={() => addElement('link')}
 			on:keydown={() => addElement('link')}
 		>
-			<i class="fa fa-link"></i>
-			{@html $t('menu.add.link')}
+			<i class="gg-link mx-1" />
+			<span>{@html $t('menu.add.link')}</span>
 		</div>
 		<div
-			class="menu-item"
+			class="menu-item is-flex is-flex-direction-row is-flex-wrap-wrap is-align-items-center"
 			role="menuitem"
 			tabindex="0"
 			aria-roledescription="menuitem"
 			on:click={() => addElement('timer')}
 			on:keydown={() => addElement('timer')}
 		>
-			<i class="fa fa-stopwatch"></i>
-			{@html $t('menu.add.timer')}
+			<i class="gg-stopwatch mx-1" />
+			<span>{@html $t('menu.add.timer')}</span>
 		</div>
 	</div>
 </div>

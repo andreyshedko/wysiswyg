@@ -53,12 +53,12 @@
 			<div class="is-flex is-flex-direction-row is-justify-content-flex-end">
 				<button class="button is-smallest" on:click={() => toggleSlider(true)} title={edit}>
 					<span class="icon is-small">
-						<i class="fa fa-file-pen" />
+						<i class="gg-pen" />
 					</span>
 				</button>
 				<button class="button is-smallest" on:click={deleteItem} title={del}>
 					<span class="icon is-small">
-						<i class="fa fa-trash" />
+						<i class="gg-trash" />
 					</span>
 				</button>
 			</div>

@@ -31,7 +31,7 @@
 <div class="field">
 	<button class="button" on:click={resetGradient} aria-label="Reset" title="Reset">
 		<span class="icon is-small">
-			<i class="fas fa-arrow-rotate-left" />
+			<i class="gg-undo" />
 		</span>
         <span>{@html $t('slider.text.textGradient.reset')}</span>
 	</button>

@@ -13,8 +13,8 @@
 		publishCallback={callback}
 		helpCallback={callback}
 	/>
-	<i class="fa-solid fa-mobile-screen-button"></i>
-	<i class="fa-solid fa-backward-step"></i>
-	<i class="fa-solid fa-forward-step"></i>
+	<i class="gg-smartphone"></i>
+	<i class="gg-chevron-left"></i>
+	<i class="gg-chevron-right"></i>
 	<AddMenuItem />
 </section>

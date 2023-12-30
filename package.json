@@ -57,9 +57,8 @@
 	"types": "./dist/index.d.ts",
 	"type": "module",
 	"dependencies": {
-		"@fortawesome/fontawesome-free": "^6.4.2",
 		"bulma": "^0.9.4",
-		"dompurify": "^3.0.6",
-		"rxjs": "^7.8.1"
+		"css.gg": "^2.1.1",
+		"dompurify": "^3.0.6"
 	}
 }

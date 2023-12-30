@@ -6,7 +6,9 @@ import type { ComponentType } from "svelte";
 declare global {
 	module Editor {
 		type Color = { r: number, g: number, b: number, a: number };
-		type ElementType = 'text'
+		type ElementType =
+			'layout'
+			| 'text'
 			| 'image'
 			| 'video'
 			| 'list'

@@ -25,74 +25,73 @@
 </script>
 
 <div class="dropdown">
-	<!-- <Fa icon={faBars} /> -->
-	<i class="fa-solid fa-bars"></i>
+	<i class="gg-file-add"></i>
 	<div class="dropdown-content position-right">
 		<div
 			role="menuitem"
 			tabindex="0"
 			aria-roledescription="menuitem"
-			class="menu-item"
+			class="menu-item is-flex is-flex-direction-row is-flex-wrap-wrap is-align-items-center"
 			on:click={newDocument}
 			on:keydown={newDocument}
 		>
-			<i class="fa-solid fa-arrows-rotate"></i>
-			{@html $t('menu.file.newDocument')}
+			<i class="gg-redo mx-1"></i>
+			<span>{@html $t('menu.file.newDocument')}</span>
 		</div>
 		<div
-			class="menu-item"
+			class="menu-item is-flex is-flex-direction-row is-flex-wrap-wrap is-align-items-center"
 			role="menuitem"
 			aria-roledescription="menuitem"
 			tabindex="0"
 			on:click={() => publish(publishCallback)}
 			on:keydown={() => publish(publishCallback)}
 		>
-			<i class="fa-solid fa-upload"></i>
-			{@html $t('menu.file.publish')}
+			<i class="gg-software-upload mx-1"></i>
+			<span>{@html $t('menu.file.publish')}</span>
 		</div>
 		<div
-			class="menu-item"
+			class="menu-item is-flex is-flex-direction-row is-flex-wrap-wrap is-align-items-center"
 			role="menuitem"
 			tabindex="0"
 			aria-roledescription="menuitem"
 			on:click={saveCallback}
 			on:keydown={saveCallback}
 		>
-			<i class="fa-regular fa-floppy-disk"></i>
-			{@html $t('menu.file.save')}
+			<i class="gg-database mx-1"></i>
+			<span>{@html $t('menu.file.save')}</span>
 		</div>
 		<div
-			class="menu-item"
+			class="menu-item is-flex is-flex-direction-row is-flex-wrap-wrap is-align-items-center"
 			role="menuitem"
 			tabindex="0"
 			aria-roledescription="menuitem"
 			on:click={historyCallback}
 			on:keydown={historyCallback}
 		>
-			<i class="fa-solid fa-timeline"></i>
-			{@html $t('menu.file.history')}
+			<i class="gg-time mx-1"></i>
+			<span>{@html $t('menu.file.history')}</span>
 		</div>
 		<div
-			class="menu-item"
+			class="menu-item is-flex is-flex-direction-row is-flex-wrap-wrap is-align-items-center"
 			role="menuitem"
 			tabindex="0"
 			aria-roledescription="menuitem"
 			on:click={print}
 			on:keydown={print}
 		>
-			<i class="fa-solid fa-print"></i>
-			{@html $t('menu.file.print')}
+			<i class="gg-printer mx-1"></i>
+			<span>{@html $t('menu.file.print')}</span>
 		</div>
 		<div
-			class="menu-item"
+			class="menu-item is-flex is-flex-direction-row is-flex-wrap-wrap is-align-items-center"
 			role="menuitem"
 			tabindex="0"
 			aria-roledescription="menuitem"
 			on:click={() => help(helpCallback)}
 			on:keydown={() => help(helpCallback)}
 		>
-			<i class="fa-solid fa-circle-info"></i>
-			{@html $t('menu.file.help')}
+			<i class="gg-info mx-1"></i>
+			<span>{@html $t('menu.file.help')}</span>
 		</div>
 	</div>
 </div>
