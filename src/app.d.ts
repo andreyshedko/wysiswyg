@@ -49,6 +49,10 @@ declare global {
 		}
 
 		type EnhancedTextComponent = { id: string } & Editor.TextElementProps;
+
+		interface LayoutElementProps {
+			type: 'email' | 'landing';
+		}
 	}
 }
 

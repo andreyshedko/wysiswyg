@@ -42,7 +42,7 @@
 				aria-roledescription="button"
 				tabindex="0"
 			>
-				<i class="fa-solid fa-xmark" />
+				<i class="gg-close" />
 			</div>
 		</div>
 		<div class="slider-body">

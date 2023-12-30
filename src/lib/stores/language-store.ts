@@ -1,13 +1,13 @@
 import { derived, writable, type Writable } from 'svelte/store';
 import { translations } from "./translations.ts";
 
-const _language: Writable<string> = writable("");
+const locale: Writable<string> = writable("");
 
-export const unsusbcribe = _language;
+export const unsusbcribe = locale;
 export const locales = Object.keys(translations);
 
 export const setLocale = (language: string) => {
-    _language.set(language);
+    locale.set(language);
 }
 
 function translate(locale: string, key: string, vars: string): string {
@@ -27,7 +27,7 @@ function translate(locale: string, key: string, vars: string): string {
     return text;
 }
 
-export const t = derived(_language, ($locale) => (key, vars = {}) =>
+export const t = derived(locale, ($locale) => (key, vars = {}) =>
     translate($locale, key, vars)
 );
 

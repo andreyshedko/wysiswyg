@@ -1,7 +1,9 @@
 import { browser } from '$app/environment';
 import type { ComponentType } from 'svelte';
 import Text from './components/Content/Text.svelte';
+import Layout from '$lib/components/Content/Layout.svelte'
 import TextComponent from './components/Slider/TextComponent.svelte';
+import LayoutComponent from './components/Slider/LayoutComponent.svelte';
 import { setElementProps, setSelectedId } from './stores/selected-element.store.ts';
 import Wrapper from './components/Wrapper.svelte';
 
@@ -18,8 +20,8 @@ export const textTypes = [
 ];
 
 export const layoutTypes = [
-    { key: "column", value: "utils.types.column" },
-    { key: "grid", value: "utils.types.grid" }
+    { key: "email", value: "utils.layout.email" },
+    { key: "landing", value: "utils.layout.landing" }
 ];
 
 export const alignTypes = [
@@ -30,10 +32,12 @@ export const alignTypes = [
 ];
 
 const elementsMap = new Map<Editor.ElementType, unknown>()
-    .set('text', Text);
+    .set('text', Text)
+    .set('layout', Layout);
 
 const sliderElementsMap = new Map<Editor.ElementType, [string, ComponentType]>()
-    .set('text', ["Text Element", TextComponent]);
+    .set('text', ["Text Element", TextComponent])
+    .set('layout', ["Layout Element", LayoutComponent]);
 
 const defaultPropsMap = new Map<Editor.ElementType, Record<string, unknown>>()
     .set("text", {
@@ -43,26 +47,29 @@ const defaultPropsMap = new Map<Editor.ElementType, Record<string, unknown>>()
             'color': '#f91010',
             'padding': '10px'
         }
+    })
+    .set("layout", {
+        'type': 'email',
     });
 
 export const getSliderComponent = (component: Editor.ElementType) => {
     return sliderElementsMap.get(component)
 }
 
-export const children = (element: Editor.ElementType): {_element: any, defaults: Record<string, unknown>} => {
+export const children = (element: Editor.ElementType): { _element: any, defaults: Record<string, unknown> } => {
     const _element = elementsMap.get(element);
     let defaults = defaultPropsMap.get(element);
-    return { _element, defaults}
+    return { _element, defaults }
 }
 
 export const insertElement = (element: Editor.ElementType): void => {
     let start: Element | null;
-    if (browser) {    
-        start = document.getElementById('editor') as Element;
+    if (browser) {
+        start = document.getElementById('layout') ?? document.getElementById('editor');
         const id = crypto.randomUUID();
         setSelectedId(id);
         const _children = children(element);
-        new Wrapper({ target: start, props: { id, children: _children  } });
+        new Wrapper({ target: start, props: { id, children: _children } });
     }
 }
 
@@ -102,12 +109,12 @@ export function replaces(value: string): string {
 }
 
 export function changeText(props: Editor.TextElementProps, value: string): void {
-    props = {...props, text: value};
+    props = { ...props, text: value };
     setElementProps({ ...props });
 }
 
 export function changeColor(props: Editor.TextElementProps, color: string): void {
-    props.appearance = { ...props.appearance,  color };
+    props.appearance = { ...props.appearance, color };
     setElementProps({ ...props });
 }
 

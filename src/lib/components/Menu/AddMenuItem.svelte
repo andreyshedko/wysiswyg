@@ -21,7 +21,7 @@
 			on:keydown={() => addElement('layout')}
 		>
 			<i class="gg-view-cols mx-1"></i>
-			<span>{@html $t('slider.layout')}</span>
+			<span>{@html $t('menu.add.layout')}</span>
 		</div>
 		<div
 			role="menuitem"

@@ -3,13 +3,20 @@
 	import { layoutTypes } from '$lib/utils.ts';
     import Select from '../Select/Select.svelte';
 
+	export let props: Editor.LayoutElementProps;
+
+	function changeLayout(props: Editor.LayoutElementProps, ev: CustomEvent<unknown>): void {
+		console.log(props, ev.detail)
+	}
+
 </script>
-<div class="flex-column mt-1">
+<div class="flex-column px-4">
     <!-- svelte-ignore a11y-label-has-associated-control -->
     <label class="label">{@html $t('slider.layout')}</label>
 		<!-- svelte-ignore missing-declaration -->
 		<Select
-			selectedValue={props?.appearance.layout || 'column'}
+			id={'layout'}
+			selectedValue={props?.type}
 			items={layoutTypes}
 			on:change={(ev) => changeLayout(props, ev.detail)}
 		/>
