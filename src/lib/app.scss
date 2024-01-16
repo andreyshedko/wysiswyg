@@ -3,7 +3,6 @@
 @import "../../node_modules/css.gg/icons/icons.css";
 
 :root {
-    font-size: calc(15px + 0.390625vw);
     box-sizing: border-box;
 }
 
@@ -19,7 +18,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    font-size: calc(15px + 0.390625vw);
+    font-size: clamp(2rem, calc(0.390625vw + 1rem), 3rem);
     font-family: "Open Sans";
 }
 

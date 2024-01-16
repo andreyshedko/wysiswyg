@@ -6,6 +6,7 @@ import TextComponent from './components/Slider/TextComponent.svelte';
 import LayoutComponent from './components/Slider/LayoutComponent.svelte';
 import { setElementProps, setSelectedId } from './stores/selected-element.store.ts';
 import Wrapper from './components/Wrapper.svelte';
+import { toggleSlider } from './stores/slider-store.ts';
 
 export const initEditor = (value: HTMLElement, _document: Document) => {
     if (_document) {
@@ -68,6 +69,9 @@ export const insertElement = (element: Editor.ElementType): void => {
         start = document.getElementById('layout') ?? document.getElementById('editor');
         const id = crypto.randomUUID();
         setSelectedId(id);
+        if (element === 'layout') {
+            toggleSlider(true);
+        }
         const _children = children(element);
         new Wrapper({ target: start, props: { id, children: _children } });
     }
@@ -106,6 +110,11 @@ export function replaces(value: string): string {
     } else {
         return value;
     }
+}
+
+export function changeLayout(props: Editor.LayoutElementProps, value: 'email' | 'landing'): void {
+    props = { ...props, type: value };
+    setElementProps({ ...props });
 }
 
 export function changeText(props: Editor.TextElementProps, value: string): void {

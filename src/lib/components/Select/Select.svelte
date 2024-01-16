@@ -13,7 +13,7 @@
 	};
 </script>
 
-<div class="select">
+<div class="select is-medium">
 	<select 
 		id={id} 
 		bind:value={selectedValue} 

@@ -8,6 +8,8 @@ declare global {
 		type Color = { r: number, g: number, b: number, a: number };
 		type ElementType =
 			'layout'
+			| 'header'
+			| 'footer'
 			| 'text'
 			| 'image'
 			| 'video'
@@ -52,6 +54,7 @@ declare global {
 
 		interface LayoutElementProps {
 			type: 'email' | 'landing';
+			grid?: unknown;
 		}
 	}
 }
