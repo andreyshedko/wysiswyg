@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Menu from '../Menu/Menu.svelte';
 	import Slider from '../Slider/Slider.svelte';
+	import Modal from '../Modal/LayoutModal.svelte'
 	import '../../app.scss';
 	import './Editor.scss';
 	import { setLocale } from '$lib/stores/language-store.ts';
@@ -36,3 +37,4 @@
 	on:dragover={(event) => dragover(event)}
 />
 <Slider />
+<Modal />

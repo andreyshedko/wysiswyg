@@ -3,7 +3,6 @@ import type { ComponentType } from 'svelte';
 import Text from './components/Content/Text.svelte';
 import Layout from '$lib/components/Content/Layout.svelte'
 import TextComponent from './components/Slider/TextComponent.svelte';
-import LayoutComponent from './components/Slider/LayoutComponent.svelte';
 import { setElementProps, setSelectedId } from './stores/selected-element.store.ts';
 import Wrapper from './components/Wrapper.svelte';
 import { toggleSlider } from './stores/slider-store.ts';
@@ -37,8 +36,7 @@ const elementsMap = new Map<Editor.ElementType, unknown>()
     .set('layout', Layout);
 
 const sliderElementsMap = new Map<Editor.ElementType, [string, ComponentType]>()
-    .set('text', ["Text Element", TextComponent])
-    .set('layout', ["Layout Element", LayoutComponent]);
+    .set('text', ["Text Element", TextComponent]);
 
 const defaultPropsMap = new Map<Editor.ElementType, Record<string, unknown>>()
     .set("text", {

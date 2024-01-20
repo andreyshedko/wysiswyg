@@ -29,6 +29,10 @@ declare global {
 			component?: ComponentType;
 		}
 
+		interface ModalState {
+			isOpen: boolean;
+		}
+
 		type IEvent = MouseEvent | KeyboardEvent;
 
 		interface TextElementProps {

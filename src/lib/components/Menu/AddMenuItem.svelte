@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { t } from '$lib/stores/language-store.ts';
+	import { toggleModal } from '$lib/stores/modal.store.ts';
 	import { setSelectedElement } from '$lib/stores/slider-store.ts';
 	import { insertElement } from '$lib/utils.ts';
 
@@ -12,35 +13,13 @@
 <div class="dropdown">
 	<i class="gg-math-plus" />
 	<div class="dropdown-content position">
-		<!-- <div
-			role="menuitem"
-			tabindex="0"
-			aria-roledescription="menuitem"
-			class="menu-item is-flex is-flex-direction-row is-flex-wrap-wrap is-align-items-center"
-			on:click={() => addElement('header')}
-			on:keydown={() => addElement('header')}
-		>
-			<i class="gg-view-cols mx-2"></i>
-			<span>{@html $t('menu.add.header')}</span>
-		</div> -->
-		<!-- <div
-			role="menuitem"
-			tabindex="0"
-			aria-roledescription="menuitem"
-			class="menu-item is-flex is-flex-direction-row is-flex-wrap-wrap is-align-items-center"
-			on:click={() => addElement('footer')}
-			on:keydown={() => addElement('footer')}
-		>
-			<i class="gg-view-cols mx-2"></i>
-			<span>{@html $t('menu.add.footer')}</span>
-		</div> -->
 		<div
 			role="menuitem"
 			tabindex="0"
 			aria-roledescription="menuitem"
 			class="menu-item is-flex is-flex-direction-row is-flex-wrap-wrap is-align-items-center is-size-5"
-			on:click={() => addElement('layout')}
-			on:keydown={() => addElement('layout')}
+			on:click={() => toggleModal(true)}
+			on:keydown={() => toggleModal(true)}
 		>
 			<i class="gg-view-cols mx-2"></i>
 			<span>{@html $t('menu.add.layout')}</span>
