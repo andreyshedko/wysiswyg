@@ -32,6 +32,7 @@
 	"devDependencies": {
 		"@playwright/test": "^1.28.1",
 		"@sveltejs/adapter-auto": "^2.0.0",
+		"@sveltejs/enhanced-img": "^0.1.8",
 		"@sveltejs/kit": "^1.20.4",
 		"@sveltejs/package": "^2.0.0",
 		"@testing-library/jest-dom": "^6.1.4",
@@ -59,6 +60,7 @@
 	"dependencies": {
 		"bulma": "^0.9.4",
 		"css.gg": "^2.1.1",
-		"dompurify": "^3.0.6"
+		"dompurify": "^3.0.6",
+		"sharp": "^0.33.2"
 	}
 }
