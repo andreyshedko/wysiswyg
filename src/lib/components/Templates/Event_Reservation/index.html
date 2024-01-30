@@ -1,10 +1,180 @@
 <style>
     body {
-        background-color: #111;
+        color: #ffffff8e;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        background-color: #000;
+        margin: 0;
+        padding: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    input[type=submit]{
+        background-color: inherit;
+        border: 1px solid #fff;
+        color: white;
+        padding: 16px 32px;
+        text-decoration: none;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+
+    input[type=text],
+    input[type=email] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    .container {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+
+        .main-message {
+            background-image: url("./main-1.webp");
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+
+            img {
+                width: 100vw;
+                max-width: 100%;
+                object-fit: cover;
+                aspect-ratio: 3/2;
+                height: auto;
+            }
+
+            .content {
+                position: absolute;
+                font-size: 2vw;
+                text-size-adjust: auto;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                max-width: 20vw;
+            }
+        }
+
+        .footer {
+            display: grid;
+            grid-template-areas:
+                "a b c"
+                "a b c"
+                "a b c";
+
+            .center {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                font-size: 0.7vw;
+            }
+
+            .form {
+                display: grid;
+                grid-template-areas:
+                    "a"
+                    "b"
+                    "c";
+            }
+
+            .width-33 {
+                width: 33vw;
+            }
+        }
+    }
+
+    @media screen and (min-width: 769px) and (max-width: 1440px) {
+        .container {
+            .main-message {
+                .content {
+                    font-size: 4vw;
+                    text-size-adjust: auto;
+                    max-width: 35vw;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        .container {
+            .main-message {
+                .content {
+                    font-size: 4vw;
+                    text-size-adjust: auto;
+                    max-width: 35vw;
+                }
+            }
+        }
     }
 </style>
 
-<div>
-    <enhanced:img src="./main.webp?w=1280;640;400"
-        sizes="(min-width:1920px) 1280px, (min-width:1080px) 640px, (min-width:768px) 400px" />
+<div class="container">
+    <section class="main-message">
+        <div class="content">
+            <label style="font-size: 0.6vw; text-align: left;">When: <time>31.12.2024</time></label>
+            Some text that should bring attention to your message.
+        </div>
+    </section>
+    <section class="footer">
+        <div class=" width-33"></div>
+        <div class="center width-33">
+            <h1>More details here</h1>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; padding: 0.5rem;">
+                <div>
+                    <h2>More info</h2>
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi imperdiet, mauris ac auctor dictum,
+                    nisl
+                    ligula egestas nulla, et sollicitudin sem purus in lacus.
+                </div>
+                <div>
+                    <h2>More info</h2>
+                    Cum sociis natoque
+                    penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed convallis magna eu sem. Nunc
+                    dapibus
+                    tortor vel mi dapibus sollicitudin. Nullam eget nisl. Suspendisse sagittis ultrices augue.</div>
+            </div>
+        </div>
+        <div class="width-33"></div>
+        <div class="width-33"></div>
+        <div class="center width-33">
+            <form class="form">
+                <section style="display: flex; flex-direction: row;">
+                    <div style="padding-right: 1rem;">
+                        <lable style="font-size: 0.5vw;">Name (required)</lable>
+                        <input type="text" placeholder="Name" required />
+                    </div>
+                    <div>
+                        <label style="font-size: 0.5vw;">Family Name</label>
+                        <input type="text" placeholder="Family Name" required />
+                    </div>
+                </section>
+                <section>
+                    <label style="font-size: 0.5vw;">E-mail (required)</label>
+                    <input type="email" placeholder="Email" required />
+                </section>
+                <section>
+                    <input type="submit" placeholder="RSVP" value="RSVP" />
+                </section>
+            </form>
+        </div>
+        <div class="width-33"> </div>
+        <div class="width-33"></div>
+        <div class="width-33"></div>
+        <div class="width-33"></div>
+    </section>
+
 </div>

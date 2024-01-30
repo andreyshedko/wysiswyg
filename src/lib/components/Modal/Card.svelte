@@ -7,7 +7,7 @@
 <div class="card">
 	<div class="card-image">
 		<figure class="image is-4by3">
-			<enhanced:img src={placeholderUrl} />
+			<img src={placeholderUrl} alt="An alt text" />
 		</figure>
 	</div>
 	<div class="card-content">
